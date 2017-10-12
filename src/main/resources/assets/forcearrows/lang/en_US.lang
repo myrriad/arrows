@@ -1,0 +1,9 @@
+item.mass_ingot.name=Ingot of Mass
+item.mass_nugget.name=Nugget of Mass
+item.energy_ingot.name=Ingot of Energy
+item.energy_nugget.name=Nugget of Energy
+
+tile.m_workbench.name=Modelmaker's Bench
+tile.mass_block.name=Block of Mass
+
+container.m_workbench.name=Modelmaker's Bench

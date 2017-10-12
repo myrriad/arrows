@@ -1,0 +1,16 @@
+{
+    "type": "forge:ore_shaped",
+    "pattern": [
+        "LLL",
+        "LLL",
+        "LLL"
+    ],
+    "key": {
+        "L": {
+            "item": "forcearrows:mass_ingot"
+        }
+    },
+    "result": {
+        "item": "forcearrows:mass_block"
+    }
+}

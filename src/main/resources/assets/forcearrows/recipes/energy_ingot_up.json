@@ -1,0 +1,25 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "GBG",
+        "LCL",
+        "GBG"
+    ],
+    "key": {
+        "G": {
+            "item": "minecraft:gunpowder"
+        },
+        "B": {
+            "item": "minecraft:blaze_rod"
+        },
+        "L": {
+            "item": "minecraft:lava_bucket"
+        },
+        "C": {
+            "item": "minecraft:coal_block"
+        }
+    },
+    "result": {
+        "item": "forcearrows:energy_nugget"
+    }
+}

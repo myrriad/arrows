@@ -1,0 +1,16 @@
+[
+{
+  "modid": "chemistryCraft",
+  "name": "Chemistry Craft",
+  "description": "Mod based on reacting solvents",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["phlaxyr"],
+  "credits": "phlaxyr, thegreyghost for the example",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
