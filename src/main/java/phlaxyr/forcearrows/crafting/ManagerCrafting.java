@@ -1,4 +1,4 @@
-package phlaxyr.forcearrows.crafting.manager;
+package phlaxyr.forcearrows.crafting;
 
 import java.util.Map;
 
@@ -18,20 +18,19 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.RegistryNamespaced;
 import net.minecraft.world.World;
-import phlaxyr.forcearrows.crafting.recipe.RecipeShapedExt;
 
 
-public abstract class ManagerCraftCommon {
+public abstract class ManagerCrafting {
 	/** A list of all the recipes added */
 	public static final RegistryNamespaced<ResourceLocation, IRecipe> REGISTRY = new RegistryNamespaced<>();
 
 	private static int nextAvailableId = 0;
 	int gridWidth, gridHeight;
-	public static ManagerCraftCommon getInstance() {
+	public static ManagerCrafting getInstance() {
 		throw new IllegalStateException("Hide this static method (?)");
 	}
 	
-	protected ManagerCraftCommon(int width, int height) {
+	protected ManagerCrafting(int width, int height) {
 		gridWidth = width;
 		gridHeight = height;
 	}
@@ -137,7 +136,7 @@ public abstract class ManagerCraftCommon {
         }
         System.err.println("RESULT: "+stack.getDisplayName());
         
-        ShapedRecipes shapedrecipes = new RecipeShapedExt(j, k, nnlIngr, stack, gridWidth, gridHeight);
+        ShapedRecipes shapedrecipes = new RecipeShapedCommon(j, k, nnlIngr, stack, gridWidth, gridHeight);
         register(recipeRegistryName,shapedrecipes);
         return shapedrecipes;
     }

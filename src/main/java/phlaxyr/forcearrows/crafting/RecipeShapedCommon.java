@@ -1,4 +1,4 @@
-package phlaxyr.forcearrows.crafting.recipe;
+package phlaxyr.forcearrows.crafting;
 
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
@@ -7,24 +7,32 @@ import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 
-public class RecipeShapedExt extends ShapedRecipes {
+public class RecipeShapedCommon extends ShapedRecipes {
 
 	int gridWidth, gridHeight;
 	
-	public RecipeShapedExt(int width, int height, NonNullList<Ingredient> ingredients, ItemStack result,
+	public RecipeShapedCommon(int width, int height, NonNullList<Ingredient> ingredients, ItemStack result,
 			int gridWidth, int gridHeight) {
 		super("", width, height, ingredients, result);
 		this.gridWidth = gridWidth;
 		this.gridHeight = gridHeight;
 	}
 
+	/***
+	 * Container Item is for buckets etc. when you craft with them
+	 * This gets the buckets
+	 * And also deletes items with weird meta-values
+	 * 
+	 */
 	public NonNullList<ItemStack> getRemainingItems(InventoryCrafting inv) {
-		NonNullList<ItemStack> nonnulllist = NonNullList.<ItemStack>withSize(inv.getSizeInventory(), ItemStack.EMPTY);
-		for (int i = 0; i < nonnulllist.size(); ++i) {
-			ItemStack itemstack = inv.getStackInSlot(i);
-			nonnulllist.set(i, net.minecraftforge.common.ForgeHooks.getContainerItem(itemstack));
+		NonNullList<ItemStack> remaining = NonNullList.<ItemStack>withSize(inv.getSizeInventory(), ItemStack.EMPTY);
+		for (int i = 0; i < remaining.size(); ++i) {
+			// gets the stuff in the inventory
+			ItemStack itemInInv = inv.getStackInSlot(i);
+			// if it's something that should be left over, like a bucket
+			remaining.set(i, net.minecraftforge.common.ForgeHooks.getContainerItem(itemInInv));
 		}
-		return nonnulllist;
+		return remaining;
 	}
 
 	/**
@@ -71,7 +79,7 @@ public class RecipeShapedExt extends ShapedRecipes {
 		return true;
 	}
 	/*
-	public static RecipeShapedExt deserialize(JsonObject jsonObject, int gridWidth, int gridHeight) {
+	public static RecipeShapedCommon deserialize(JsonObject jsonObject, int gridWidth, int gridHeight) {
 		Map<String, Ingredient> map = deserializeKey(JsonUtils.getJsonObject(jsonObject, "key"));
 		String[] astring = shrink(patternFromJson(
 				JsonUtils.getJsonArray(jsonObject, "pattern"),
@@ -81,7 +89,7 @@ public class RecipeShapedExt extends ShapedRecipes {
 		int j = astring.length;
 		NonNullList<Ingredient> nonnulllist = deserializeIngredients(astring, map, i, j);
 		ItemStack itemstack = deserializeItem(JsonUtils.getJsonObject(jsonObject, "result"), true);
-		return new RecipeShapedExt(i, j, nonnulllist, itemstack, gridWidth, gridHeight);
+		return new RecipeShapedCommon(i, j, nonnulllist, itemstack, gridWidth, gridHeight);
 	}
 
 	//PRIVATE!

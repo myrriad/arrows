@@ -8,20 +8,20 @@ import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
-import phlaxyr.forcearrows.crafting.manager.ManagerCraftCommon;
+import phlaxyr.forcearrows.crafting.ManagerCrafting;
 
 public class SlotCrafter extends Slot
 {
     /** The craft matrix inventory linked to this result slot. */
     private final InventoryCrafting craftMatrix;
-    /** The player that is using the GUI where this slot resides. */
+    /** The playerInv that is using the GUI where this slot resides. */
     private final EntityPlayer thePlayer;
     /** The number of items that have been crafted so far. Gets passed to ItemStack.onCrafting before being reset. */
     private int amountCrafted;
 
-    private final ManagerCraftCommon MANAGER;
+    private final ManagerCrafting MANAGER;
     
-    public SlotCrafter(ManagerCraftCommon manager, EntityPlayer player, InventoryCrafting craftingInventory, IInventory inventoryIn, int slotIndex, int xPosition, int yPosition)
+    public SlotCrafter(ManagerCrafting manager, EntityPlayer player, InventoryCrafting craftingInventory, IInventory inventoryIn, int slotIndex, int xPosition, int yPosition)
     {
         super(inventoryIn, slotIndex, xPosition, yPosition);
         MANAGER = manager;
@@ -30,7 +30,7 @@ public class SlotCrafter extends Slot
     }
 
     /**
-     * Check if the stack is a valid item for this slot. Always true beside for the armor slots.
+     * Check if the stack is a valid item for this slot. Never true: it's the slot
      */
     public boolean isItemValid(@Nullable ItemStack stack)
     {
@@ -38,12 +38,12 @@ public class SlotCrafter extends Slot
     }
 
     /**
-     * Decrease the size of the stack in slot (first int arg) by the amount of the second int arg. Returns the new
-     * stack.
+     * Crafting time! yay!
      */
     public ItemStack decrStackSize(int amount)
     {
         if (this.getHasStack())
+        	// if we've got the goods (crafted stuffz)
         {
             this.amountCrafted += Math.min(amount, this.getStack().getCount());
         }
@@ -74,39 +74,62 @@ public class SlotCrafter extends Slot
         this.amountCrafted = 0;
     }
 
+    /***
+     * Take only one ?
+     */
     public ItemStack onTake(EntityPlayer playerIn, ItemStack stack)
     {
 //        net.minecraftforge.fml.common.FMLCommonHandler.instance().firePlayerCraftingEvent(playerIn, stack, craftMatrix);
         this.onCrafting(stack);
         net.minecraftforge.common.ForgeHooks.setCraftingPlayer(playerIn);
-        NonNullList<ItemStack> aitemstack = MANAGER.getRemainingItems(this.craftMatrix, playerIn.world);
+        NonNullList<ItemStack> leftOverBuckets = MANAGER.getRemainingItems(this.craftMatrix, playerIn.world);
         net.minecraftforge.common.ForgeHooks.setCraftingPlayer(null);
 
-        for (int i = 0; i < aitemstack.size(); ++i)
+        //           the remaining
+        //                    |
+        //                    v
+        // milk buckets -> buckets
+        //
+        // oak planks   -> nothing
+        // it's what's left over in the slot
+        // for example, when crafting cake, the milk buckets turn into normal buckets.
+        for (int i = 0; i < leftOverBuckets.size(); ++i)
         {
-            ItemStack itemstack = this.craftMatrix.getStackInSlot(i);
-            ItemStack itemstack1 = aitemstack.get(i);
+            ItemStack item = this.craftMatrix.getStackInSlot(i);
+            ItemStack leftOverBucket = leftOverBuckets.get(i);
 
-            if (!itemstack.isEmpty())
+            // if it's not empty
+            if (!item.isEmpty())
             {
-                this.craftMatrix.decrStackSize(i, 1);
-                itemstack = this.craftMatrix.getStackInSlot(i);
+                // decrement by one
+            	this.craftMatrix.decrStackSize(i, 1);
+                item = this.craftMatrix.getStackInSlot(i);
             }
-
-            if (!itemstack1.isEmpty())
+            
+            // if there should be a bucket left over
+            if (!leftOverBucket.isEmpty())
             {
-                if (itemstack.isEmpty())
+                // the grid is empty
+            	if (item.isEmpty())
                 {
-                    this.craftMatrix.setInventorySlotContents(i, itemstack1);
+                    // put a bucket in the grid
+            		this.craftMatrix.setInventorySlotContents(i, leftOverBucket);
                 }
-                else if (ItemStack.areItemsEqual(itemstack, itemstack1) && ItemStack.areItemStackTagsEqual(itemstack, itemstack1))
+            	// if they're both the same item
+                else if (ItemStack.areItemsEqual(item, leftOverBucket) && ItemStack.areItemStackTagsEqual(item, leftOverBucket))
                 {
-                    itemstack1.grow(itemstack.getCount());
-                    this.craftMatrix.setInventorySlotContents(i, itemstack1);
+                    // merge!
+                	leftOverBucket.grow(item.getCount());
+                    this.craftMatrix.setInventorySlotContents(i, leftOverBucket);
                 }
-                else if (!this.thePlayer.inventory.addItemStackToInventory(itemstack1))
+            	// the heck
+            	// since we can't put the bucket in the slot
+            	// we stick it in the playerInv's inventory
+                else if (!this.thePlayer.inventory.addItemStackToInventory(leftOverBucket))
                 {
-                    this.thePlayer.dropItem(itemstack1, false);
+                    // if we can't stick it in the playerInv's inventory!
+                	// drop the item
+                	this.thePlayer.dropItem(leftOverBucket, false);
                 }
             }
         }

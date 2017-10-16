@@ -20,7 +20,7 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import phlaxyr.forcearrows.crafting.manager.ManagerCraftCommon;
+import phlaxyr.forcearrows.crafting.ManagerCrafting;
 import phlaxyr.forcearrows.tile.TileCommon;
 
 @Deprecated
@@ -31,7 +31,7 @@ public class Argbus {
 	private World world; 
 	private BlockPos blockPos; 
 	private TileCommon tileCommon;
-	private ManagerCraftCommon managerCraftCommon; 
+	private ManagerCrafting managerCraftCommon; 
 	private ResourceLocation resourceLocation;
 	private int gridX, gridY, textureSizeX, textureSizeY;
 	private List<Integer> types=new ArrayList<>();
@@ -123,7 +123,7 @@ public class Argbus {
 	public World World()						{return (World)				check(world);}
 	public BlockPos BlockPos()					{return (BlockPos)			check(blockPos);}
 	public TileCommon TileCommon()				{return (TileCommon)		check(tileCommon);}
-	public ManagerCraftCommon ManagerCraftCommon()	{return (ManagerCraftCommon)	check(managerCraftCommon);}
+	public ManagerCrafting ManagerCraftCommon()	{return (ManagerCrafting)	check(managerCraftCommon);}
 	public ResourceLocation ResourceLocation()	{return (ResourceLocation)	check(resourceLocation);}
 	public int gridX()	{return gridX;}
 	public int gridY()	{return gridY;}
@@ -147,7 +147,7 @@ public class Argbus {
 		return this;
 	}
 
-	public Argbus a(ManagerCraftCommon i) {
+	public Argbus a(ManagerCrafting i) {
 		managerCraftCommon = i;
 		return this;
 	}

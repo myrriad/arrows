@@ -1,4 +1,4 @@
-package phlaxyr.forcearrows;
+package phlaxyr.forcearrows.registrars;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;

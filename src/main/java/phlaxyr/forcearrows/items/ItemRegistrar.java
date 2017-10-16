@@ -7,7 +7,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
-import phlaxyr.forcearrows.Registrar;
+import phlaxyr.forcearrows.registrars.Registrar;
 
 public class ItemRegistrar extends Registrar {
 	@GameRegistry.ObjectHolder("forcearrows:mass_ingot")

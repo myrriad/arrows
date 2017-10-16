@@ -1,4 +1,4 @@
-package phlaxyr.forcearrows.blocks;
+package phlaxyr.forcearrows.machines.transformer;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -15,10 +15,11 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import phlaxyr.forcearrows.ForceArrows;
-import phlaxyr.forcearrows.tile.TileTransformer;
+import phlaxyr.forcearrows.blocks.BlockContainerCommon;
+import phlaxyr.forcearrows.gui.GuiID;
 
 public class BlockTransformer extends BlockContainerCommon {
-	public int guiID;
+	public int guiID = GuiID.TRANSFORMER_GUI;
 
 	@SideOnly(Side.CLIENT)
 	public void initModel()

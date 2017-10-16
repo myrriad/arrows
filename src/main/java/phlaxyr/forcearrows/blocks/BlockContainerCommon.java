@@ -23,6 +23,7 @@ import phlaxyr.forcearrows.ForceArrows;
 public abstract class BlockContainerCommon extends BlockContainer {
 	public int guiID;
 	
+	
 	@SideOnly(Side.CLIENT)
 	public void initModel()
 	{
