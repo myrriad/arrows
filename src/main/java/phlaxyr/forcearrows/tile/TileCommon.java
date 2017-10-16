@@ -7,6 +7,9 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
 
 public abstract class TileCommon extends TileEntity implements IInventory{
 	//from mcjty modding tut
@@ -66,4 +69,13 @@ public abstract class TileCommon extends TileEntity implements IInventory{
 	public String getName() {
 		return name;
 	}
+	@Override
+	public ITextComponent getDisplayName() {
+		return this.hasCustomName() ? new TextComponentString(this.getName())
+				: new TextComponentTranslation(this.getName());
+	}
+	public boolean hasCustomName() {
+		return false;
+	}
+	
 }

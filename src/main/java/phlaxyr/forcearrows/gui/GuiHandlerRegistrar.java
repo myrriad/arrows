@@ -1,4 +1,4 @@
-package phlaxyr.forcearrows.container.gui;
+package phlaxyr.forcearrows.gui;
 
 import java.util.HashMap;
 
@@ -6,16 +6,16 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.IGuiHandler;
 
-public class GuiHandlerRegistry implements IGuiHandler{
+public class GuiHandlerRegistrar implements IGuiHandler{
 	public void registerGuiHandler(IGuiHandler handler, int guiID)
 	{
 		registeredHandlers.put(guiID, handler);
 	}
 
-	public static GuiHandlerRegistry getInstance() {return guiHandlerRegistry;}
+	public static GuiHandlerRegistrar getInstance() {return guiHandlerRegistrar;}
 
 	private HashMap<Integer, IGuiHandler> registeredHandlers = new HashMap<Integer, IGuiHandler>();
-	private static GuiHandlerRegistry guiHandlerRegistry = new GuiHandlerRegistry();
+	private static GuiHandlerRegistrar guiHandlerRegistrar = new GuiHandlerRegistrar();
 
 	// Gets the server side element for the given gui id- this should return a container
 	@Override

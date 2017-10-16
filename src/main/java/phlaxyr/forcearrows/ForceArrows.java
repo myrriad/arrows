@@ -2,6 +2,7 @@ package phlaxyr.forcearrows;
 
 
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import net.minecraftforge.fml.common.Mod;
@@ -30,7 +31,9 @@ public class ForceArrows
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-    	lumberjack = event.getModLog();
+    	//lumberjack = event.getModLog();
+    	lumberjack = LogManager.getLogger(ForceArrows.MODID);
+    	lumberjack.info("Testing logger!");
     	proxy.preInit();
     }
     @EventHandler

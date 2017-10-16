@@ -1,35 +1,23 @@
-package phlaxyr.forcearrows.container.gui;
+package phlaxyr.forcearrows.gui;
 
 import java.awt.Color;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-import phlaxyr.forcearrows.container.ContainerCommon;
-import phlaxyr.forcearrows.container.ContainerCrafter5by5;
-import phlaxyr.forcearrows.crafting.manager.ManagerCraftCommon;
+import phlaxyr.forcearrows.inventory.ContainerCommon;
 import phlaxyr.forcearrows.tile.TileCommon;
 
-public abstract class GuiCommon extends GuiContainer{
+public abstract class GuiCommon<C extends ContainerCommon<T>, T extends TileCommon> extends GuiContainer{
 
 	private final ResourceLocation tex;
 	
-    TileCommon tile;
-	public GuiCommon(int textureSizeX, int textureSizeY, InventoryPlayer ip, World worldIn, BlockPos pos, 
-			TileCommon tile2, ManagerCraftCommon manager, ResourceLocation tex) {
-		super(new ContainerCrafter5by5(ip, worldIn, pos, tile2, manager));
-		this.tile = tile2;
-		this.tex=tex;
-    	this.xSize = textureSizeX;
-    	this.ySize = textureSizeY;
-	}
+    protected TileCommon tile;
 
-	public GuiCommon(int textureSizeX, int textureSizeY, ContainerCommon cont, TileCommon tile, ResourceLocation tex) {
+	
+	public GuiCommon(int textureSizeX, int textureSizeY, C cont, ResourceLocation tex) {
 		super(cont);
-		this.tile = tile;
+		this.tile = cont.getTile();
 		this.tex=tex;
     	this.xSize = textureSizeX;
     	this.ySize = textureSizeY;
@@ -53,7 +41,8 @@ public abstract class GuiCommon extends GuiContainer{
     }
 	@Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks) {
-    	super.drawScreen(mouseX, mouseY, partialTicks);
+    	this.drawDefaultBackground();
+		super.drawScreen(mouseX, mouseY, partialTicks);
         this.renderHoveredToolTip(mouseX, mouseY);
     }
 }

@@ -8,9 +8,9 @@ import net.minecraftforge.event.RegistryEvent.Register;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import phlaxyr.forcearrows.blocks.BlockRegistrar;
-import phlaxyr.forcearrows.crafting.manager.Manager5by5;
 import phlaxyr.forcearrows.items.ItemRegistrar;
-import phlaxyr.forcearrows.tile.TileRegistrar;
+import phlaxyr.forcearrows.machines.crafter.c5by5.Manager5by5;
+import phlaxyr.forcearrows.registrars.TileRegistrar;
 
 @Mod.EventBusSubscriber
 public abstract class CommonProxy {

@@ -6,9 +6,7 @@ import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.NonNullList;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentString;
-import net.minecraft.util.text.TextComponentTranslation;
+import phlaxyr.forcearrows.util.ItemStackHelper2;
 
 public class TileCrafter extends TileCommon{
 
@@ -23,15 +21,6 @@ public class TileCrafter extends TileCommon{
 	
 	/* <--STANDARD SH-->T */
 
-	public boolean hasCustomName() {
-		return false;
-	}
-
-	@Override
-	public ITextComponent getDisplayName() {
-		return this.hasCustomName() ? new TextComponentString(this.getName())
-				: new TextComponentTranslation(this.getName());
-	}
 
 	/* <--STANDARD SH-->T */
 	public int getSizeInventory() {
@@ -78,13 +67,16 @@ public class TileCrafter extends TileCommon{
 		return ItemStackHelper.getAndSplit(this.items, index - 1, count);
 	}
 
+	/***
+	 * One single click, not a shift click.
+	 */
 	@Nullable
 	public ItemStack removeStackFromSlot(int index) {
 		System.out.println(index);
 		if (index == 0) {
 			if (!result.isEmpty()) {
 				for (int x = 1; x <= items.size(); x++) {
-					// since the result _should_ always be of size 1, this works
+					// since this is triggered by one click, this works
 					decrStackSize(x, 1);
 				}
 
@@ -119,11 +111,13 @@ public class TileCrafter extends TileCommon{
 	@Override
 	public void readFromNBT(NBTTagCompound tag) {
 		super.readFromNBT(tag);
-		System.err.println(tag.toString());
+		
 		//load item from nbt
+		/*
 		NBTTagCompound resultNBT = tag.getCompoundTag("Result");
         result = new ItemStack(resultNBT);
-        
+        */
+		result = ItemStackHelper2.loadItem(tag, "Result");
         ItemStackHelper.loadAllItems(tag, items);
         markDirty();
 	}
@@ -132,13 +126,14 @@ public class TileCrafter extends TileCommon{
 	public NBTTagCompound writeToNBT(NBTTagCompound tag) {
 		super.writeToNBT(tag);
 		// result
-		if (!result.isEmpty()) {
+		/*if (!result.isEmpty()) {
 			NBTTagCompound nbtResult = new NBTTagCompound();
 			result.writeToNBT(nbtResult);
 			tag.setTag("Result", nbtResult);
 		} else {
 			tag.removeTag("Result");
-		}
+		}*/
+		ItemStackHelper2.saveItem(tag, "result", result);
 		ItemStackHelper.saveAllItems(tag, items);
 		return tag;
 	}

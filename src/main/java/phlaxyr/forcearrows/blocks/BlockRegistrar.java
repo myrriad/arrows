@@ -2,21 +2,14 @@ package phlaxyr.forcearrows.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.BlockRenderLayer;
-import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
 import net.minecraftforge.event.RegistryEvent.Register;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import phlaxyr.forcearrows.Registrar;
-import phlaxyr.forcearrows.tile.TileCrafter5by5;
+import phlaxyr.forcearrows.machines.crafter.c5by5.BlockCrafter5by5;
+import phlaxyr.forcearrows.registrars.Registrar;
 
 
 public class BlockRegistrar extends Registrar {
@@ -31,17 +24,7 @@ public class BlockRegistrar extends Registrar {
 		registerBlock(event, new BlockCommon(Material.IRON,CreativeTabs.MATERIALS)
 				.setUnlocalizedName("mass_block")
 				.setRegistryName("mass_block"));
-		registerBlock(event, new BlockCrafter(Material.WOOD, 1943) {
-			@Override
-			public TileEntity createNewTileEntity(World worldIn, int meta) {
-				return new TileCrafter5by5();
-			}
-			//TODO: public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos);
-			@Override
-			public boolean isOpaqueCube(IBlockState state) {return false;}
-			@Override
-			public boolean isFullCube(IBlockState state) {return false;}
-		}
+		registerBlock(event, new BlockCrafter5by5()
 				.setUnlocalizedName("m_workbench")
 				.setRegistryName("m_workbench"));
 	}

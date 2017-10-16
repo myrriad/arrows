@@ -1,9 +1,10 @@
-package phlaxyr.forcearrows.crafting.manager;
+package phlaxyr.forcearrows.machines.crafter.c5by5;
 
 import net.minecraft.item.ItemStack;
+import phlaxyr.forcearrows.crafting.ManagerCrafting;
 import phlaxyr.forcearrows.items.ItemRegistrar;
 
-public class Manager5by5 extends ManagerCraftCommon {
+public class Manager5by5 extends ManagerCrafting {
 
 	
 	private static Manager5by5 INSTANCE = new Manager5by5();
