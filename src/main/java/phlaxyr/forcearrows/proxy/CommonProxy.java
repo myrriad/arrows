@@ -10,7 +10,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import phlaxyr.forcearrows.blocks.BlockRegistrar;
 import phlaxyr.forcearrows.items.ItemRegistrar;
 import phlaxyr.forcearrows.machines.crafter.c5by5.Manager5by5;
-import phlaxyr.forcearrows.registrars.TileRegistrar;
+import phlaxyr.forcearrows.tile.TileRegistrar;
 
 @Mod.EventBusSubscriber
 public abstract class CommonProxy {

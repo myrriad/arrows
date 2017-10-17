@@ -4,7 +4,6 @@ import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.NonNullList;
-import phlaxyr.forcearrows.ForceArrows;
 import phlaxyr.forcearrows.tile.TileCommon;
 import phlaxyr.forcearrows.util.ItemStackHelper2;
 

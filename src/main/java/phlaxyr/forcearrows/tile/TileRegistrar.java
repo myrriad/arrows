@@ -1,4 +1,4 @@
-package phlaxyr.forcearrows.registrars;
+package phlaxyr.forcearrows.tile;
 
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
@@ -7,6 +7,7 @@ import phlaxyr.forcearrows.ForceArrows;
 import phlaxyr.forcearrows.gui.GuiHandlerRegistrar;
 import phlaxyr.forcearrows.machines.crafter.c5by5.GuiHandler5by5;
 import phlaxyr.forcearrows.machines.crafter.c5by5.TileCrafter5by5;
+import phlaxyr.forcearrows.registrars.Registrar;
 
 
 public class TileRegistrar extends Registrar{

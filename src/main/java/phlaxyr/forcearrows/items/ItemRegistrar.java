@@ -53,7 +53,7 @@ public class ItemRegistrar extends Registrar {
     public static void initModels() {
         item_massIngot.initModel();
         item_massNugget.initModel();
-        item_energyNugget.initModel();
+        item_energyIngot.initModel();
         item_energyNugget.initModel();
         item_craftingArrow.initModel();
     }
