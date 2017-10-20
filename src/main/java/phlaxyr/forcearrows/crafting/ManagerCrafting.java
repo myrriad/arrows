@@ -26,7 +26,7 @@ public abstract class ManagerCrafting {
 
 	private static int nextAvailableId = 0;
 	int gridWidth, gridHeight;
-	public static ManagerCrafting getInstance() {
+	public static ManagerCrafting singleton() {
 		throw new IllegalStateException("Hide this static method (?)");
 	}
 	
@@ -135,8 +135,11 @@ public abstract class ManagerCrafting {
         	}
         }
         System.err.println("RESULT: "+stack.getDisplayName());
+        if(gridWidth == j && gridHeight == k) {
+        	// TODO shapedrecipes of custom type
+         }
         
-        ShapedRecipes shapedrecipes = new RecipeShapedCommon(j, k, nnlIngr, stack, gridWidth, gridHeight);
+        ShapedRecipes shapedrecipes = new ARecipeShaped(j, k, nnlIngr, stack, gridWidth, gridHeight);
         register(recipeRegistryName,shapedrecipes);
         return shapedrecipes;
     }

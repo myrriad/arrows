@@ -7,22 +7,23 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
+import phlaxyr.forcearrows.ForceArrows;
 import phlaxyr.forcearrows.registrars.Registrar;
 
 public class ItemRegistrar extends Registrar {
-	@GameRegistry.ObjectHolder("forcearrows:mass_ingot")
+	@GameRegistry.ObjectHolder(ForceArrows.MODID + ":mass_ingot")
 	public static ItemCommon item_massIngot;
 	
-	@GameRegistry.ObjectHolder("forcearrows:mass_nugget")
+	@GameRegistry.ObjectHolder(ForceArrows.MODID + ":mass_nugget")
 	public static ItemCommon item_massNugget;
 	
-	@GameRegistry.ObjectHolder("forcearrows:energy_ingot")
+	@GameRegistry.ObjectHolder(ForceArrows.MODID + ":energy_ingot")
 	public static ItemCommon item_energyIngot;
 	
-	@GameRegistry.ObjectHolder("forcearrows:energy_nugget")
+	@GameRegistry.ObjectHolder(ForceArrows.MODID + ":energy_nugget")
 	public static ItemCommon item_energyNugget;
 	
-	@GameRegistry.ObjectHolder("forcearrows:crafting_arrow")
+	@GameRegistry.ObjectHolder(ForceArrows.MODID + ":crafting_arrow")
 	public static ItemCommon item_craftingArrow;
 
 	

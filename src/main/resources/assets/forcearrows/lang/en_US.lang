@@ -3,7 +3,9 @@ item.mass_nugget.name=Mass Nugget
 item.energy_ingot.name=Energy Ingot
 item.energy_nugget.name=Energy Nugget
 
-tile.m_workbench.name=Modelmaker's Bench
+tile.m_workbench.name=Expanded Crafting Table
 tile.mass_block.name=Mass Block
+
+gui.jei.forcearrows.craftfivefive=Expanded Crafting
 
 container.m_workbench.name=Modelmaker's Bench

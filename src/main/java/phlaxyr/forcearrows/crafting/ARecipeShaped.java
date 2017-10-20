@@ -7,11 +7,11 @@ import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 
-public class RecipeShapedCommon extends ShapedRecipes {
+public class ARecipeShaped extends ShapedRecipes implements ICrafterExtendable{
 
 	int gridWidth, gridHeight;
 	
-	public RecipeShapedCommon(int width, int height, NonNullList<Ingredient> ingredients, ItemStack result,
+	public ARecipeShaped(int width, int height, NonNullList<Ingredient> ingredients, ItemStack result,
 			int gridWidth, int gridHeight) {
 		super("", width, height, ingredients, result);
 		this.gridWidth = gridWidth;
@@ -79,7 +79,7 @@ public class RecipeShapedCommon extends ShapedRecipes {
 		return true;
 	}
 	/*
-	public static RecipeShapedCommon deserialize(JsonObject jsonObject, int gridWidth, int gridHeight) {
+	public static ARecipeShaped deserialize(JsonObject jsonObject, int gridWidth, int gridHeight) {
 		Map<String, Ingredient> map = deserializeKey(JsonUtils.getJsonObject(jsonObject, "key"));
 		String[] astring = shrink(patternFromJson(
 				JsonUtils.getJsonArray(jsonObject, "pattern"),
@@ -89,7 +89,7 @@ public class RecipeShapedCommon extends ShapedRecipes {
 		int j = astring.length;
 		NonNullList<Ingredient> nonnulllist = deserializeIngredients(astring, map, i, j);
 		ItemStack itemstack = deserializeItem(JsonUtils.getJsonObject(jsonObject, "result"), true);
-		return new RecipeShapedCommon(i, j, nonnulllist, itemstack, gridWidth, gridHeight);
+		return new ARecipeShaped(i, j, nonnulllist, itemstack, gridWidth, gridHeight);
 	}
 
 	//PRIVATE!
@@ -207,5 +207,17 @@ public class RecipeShapedCommon extends ShapedRecipes {
 		return i;
 	}
 	*/
+
+	@Override
+	public int gridSlotWidth()
+	{
+		return gridWidth;
+	}
+
+	@Override
+	public int gridSlotHeight()
+	{
+		return gridHeight;
+	}
 	
 }
