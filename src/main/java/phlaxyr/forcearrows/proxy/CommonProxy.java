@@ -20,6 +20,7 @@ public abstract class CommonProxy {
 		ItemRegistrar.preInit();
 
 		TileRegistrar.preInit();
+		
 	}
 	public void init() {
 		BlockRegistrar.init();
@@ -27,6 +28,8 @@ public abstract class CommonProxy {
 		TileRegistrar.init();
 		
 		Manager5by5.getInstance().init();
+		
+
 	}
 	public void postInit() {
 		BlockRegistrar.postInit();

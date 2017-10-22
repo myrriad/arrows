@@ -18,6 +18,7 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.RegistryNamespaced;
 import net.minecraft.world.World;
+import phlaxyr.forcearrows.ForceArrows;
 
 
 public abstract class ManagerCrafting {
@@ -96,10 +97,9 @@ public abstract class ManagerCrafting {
             } else {
             	try {
             		if(recipeComponents[i + 1] == null) {
-            			System.out.println("recipeComp is null!");
+            			ForceArrows.lumberjack.info("recipeComp is null!");
 					} else {
-						Class<?> c = recipeComponents[i + 1].getClass();
-						System.out.print(c.getSimpleName());
+						// Class<?> c = recipeComponents[i + 1].getClass();
 					}
             	} catch (Exception e) {
             		e.printStackTrace();
@@ -127,14 +127,17 @@ public abstract class ManagerCrafting {
 
         }
 
-        System.err.println("WIDTH: "+j);
-        System.err.println("HEIGHT: "+k);
+        // System.err.println("WIDTH: "+j);
+        // System.err.println("HEIGHT: "+k);
+        /*
         for(Ingredient ingr:nnlIngr) {
         	for(ItemStack testIStack:ingr.getMatchingStacks()) {
-        		System.err.println("INGREDIENT: "+testIStack.getDisplayName());
+        	//	System.err.println("INGREDIENT: "+testIStack.getDisplayName());
         	}
         }
-        System.err.println("RESULT: "+stack.getDisplayName());
+        // System.err.println("RESULT: "+stack.getDisplayName());
+         * */
+         
         if(gridWidth == j && gridHeight == k) {
         	// TODO shapedrecipes of custom type
          }

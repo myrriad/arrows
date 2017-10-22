@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "EB ",
+        "BES",
+        "EB "
+    ],
+    "key": {
+        "E": {
+            "item": "forcearrows:energy_ingot"
+        },
+        "B": {
+            "item": "minecraft:blaze_powder"
+        },
+        "S": {
+            "item": "forcearrows:mass_shears"
+        }
+    },
+    "result": {
+        "item": "forcearrows:triggerer_no_get"
+    }
+}
