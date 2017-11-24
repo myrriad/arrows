@@ -9,6 +9,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import phlaxyr.forcearrows.blocks.BlockRegistrar;
+import phlaxyr.forcearrows.event.ArrowManager;
 import phlaxyr.forcearrows.event.ArrowShearRenderer;
 import phlaxyr.forcearrows.items.ItemRegistrar;
 
@@ -19,8 +20,9 @@ public class ClientProxy extends CommonProxy{
 	}
 	public void init() {
 		super.init();
-		
-		MinecraftForge.EVENT_BUS.register(ArrowShearRenderer.singleton);
+
+		ArrowManager.renderer.obj = new ArrowShearRenderer(Minecraft.getMinecraft());
+		MinecraftForge.EVENT_BUS.register(ArrowManager.renderer.obj);
 	}
 	public void postInit() {
 		super.postInit();

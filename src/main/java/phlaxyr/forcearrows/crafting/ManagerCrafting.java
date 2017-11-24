@@ -23,7 +23,7 @@ import phlaxyr.forcearrows.ForceArrows;
 
 public abstract class ManagerCrafting {
 	/** A list of all the recipes added */
-	public static final RegistryNamespaced<ResourceLocation, IRecipe> REGISTRY = new RegistryNamespaced<>();
+	public final RegistryNamespaced<ResourceLocation, IRecipe> REGISTRY = new RegistryNamespaced<>();
 
 	private static int nextAvailableId = 0;
 	int gridWidth, gridHeight;
@@ -179,11 +179,11 @@ public abstract class ManagerCrafting {
 
         register(recipeRegistryName, new ShapelessRecipes("",stack, list));
     }
-	public static void register(String name, IRecipe recipe) {
+	public void register(String name, IRecipe recipe) {
 		register(new ResourceLocation(name), recipe);
 	}
 
-	public static void register(ResourceLocation name, IRecipe recipe) {
+	public void register(ResourceLocation name, IRecipe recipe) {
 		if (REGISTRY.containsKey(name)) {
 			throw new IllegalStateException("Duplicate recipe ignored with ID " + name);
 		} else {
@@ -236,7 +236,7 @@ public abstract class ManagerCrafting {
 	}
 
 	@Nullable
-	public static IRecipe getRecipe(ResourceLocation name) {
+	public IRecipe getRecipe(ResourceLocation name) {
 		return REGISTRY.getObject(name);
 	}
 }

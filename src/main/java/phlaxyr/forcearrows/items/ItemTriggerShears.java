@@ -1,26 +1,31 @@
 package phlaxyr.forcearrows.items;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import phlaxyr.forcearrows.ForceArrows;
-import phlaxyr.forcearrows.event.ArrowShearRenderer;
+import phlaxyr.forcearrows.event.ArrowManager;
 
 public class ItemTriggerShears extends ItemCommon{	
 	
-	private ArrowShearRenderer renderer;
-	public ItemTriggerShears(ArrowShearRenderer renderer)
+	private final ArrowManager.Delegate renderer;
+	public ItemTriggerShears(ArrowManager.Delegate renderer2)
 	{
 		super(CreativeTabs.MISC);
-		this.renderer = renderer;
+		this.renderer = renderer2;
 	}
 	
 	@Override
     public void onCreated(ItemStack stack, World worldIn, EntityPlayer playerIn)
     {
 		super.onCreated(stack, worldIn, playerIn);
+		Minecraft mc = Minecraft.getMinecraft();
+		// EnumFacing c = mc.objectMouseOver.sideHit;
+		
 		
 		// This is super hacky
 		// TODO a more elegant way of dealing with this
@@ -41,7 +46,7 @@ public class ItemTriggerShears extends ItemCommon{
 			stack.setCount(0);
 		
 			// make the ticking start
-			renderer.startAnim();
+			renderer.obj.addShear(worldIn, playerIn);
 		}
 		
 		
@@ -57,7 +62,7 @@ public class ItemTriggerShears extends ItemCommon{
 		// destroy: we shouldn't be able to get this
 		stack.setCount(0);
 		
-		renderer.startAnim();
+		renderer.obj.addShear(worldIn, entityIn);
 	}
 	//             net.minecraftforge.fml.common.FMLCommonHandler.instance().firePlayerCraftingEvent(this.player, stack, craftMatrix);
 	
