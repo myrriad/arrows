@@ -39,8 +39,8 @@ public class ARecipeShaped extends ShapedRecipes implements ICrafterExtendable{
 	 * Used to check if a recipe matches current crafting inventory
 	 */
 	public boolean matches(InventoryCrafting inv, World worldIn) {
-		for (int i = 0; i <= gridWidth - this.recipeWidth; ++i) {
-			for (int j = 0; j <= gridHeight - this.recipeHeight; ++j) {
+		for (int i = 0; i + this.recipeWidth <= gridWidth; ++i) {
+			for (int j = 0; j + this.recipeHeight <= gridHeight; ++j) {
 				if (this.checkMatch(inv, i, j, true)) {
 					return true;
 				}
@@ -55,24 +55,37 @@ public class ARecipeShaped extends ShapedRecipes implements ICrafterExtendable{
 	/**
 	 * Checks if the region of a crafting inventory is match for the recipe.
 	 */
-	private boolean checkMatch(InventoryCrafting grid, int width, int height, boolean magicFlag) {
-		for (int i = 0; i < gridWidth; ++i) {
-			for (int j = 0; j < gridHeight; ++j) {
-				int k = i - width;
-				int l = j - height;
+	private boolean checkMatch(InventoryCrafting grid, int offsetx, int offsety, boolean checkxbackwards) {
+		// for (int i = 0; i < gridWidth; ++i) {
+			//for (int j = 0; j < gridHeight; ++j) {
+		for(int i = offsetx; i < gridWidth; ++i) {	
+			for(int j = offsety; j < gridHeight; ++j) {
+				int x = i - offsetx; // the checkatx is the offset, so let's remove
+				int y = j - offsety; // so that it's all scaled into the upper left corner
+				// ie.
+				// ...    @@.
+				// .@@ -> @@.
+				// .@@    ...
+				
+			
 				Ingredient ingredient = Ingredient.EMPTY;
 
-				if (k >= 0 && l >= 0 && k < this.recipeWidth && l < this.recipeHeight) {
-					if (magicFlag) {
-						ingredient = this.recipeItems.get(this.recipeWidth - k - 1 + l * this.recipeWidth);
+				if (/*x >= 0 && y >= 0 &&*/ x < this.recipeWidth && y < this.recipeHeight) {
+					if (checkxbackwards) {
+						ingredient = this.recipeItems.get((this.recipeWidth - 1) - x 
+								/*reverse the x. this is useful for checking, say axes
+								 * @@.   .@@
+								 * @|. = .|@
+								 * .|.   .|.
+								 * 
+								 * */+ y * this.recipeHeight);
 					} else {
-						ingredient = this.recipeItems.get(k + l * this.recipeWidth);
+						ingredient = this.recipeItems.get(x + y * this.recipeWidth);
 					}
 				}
-
-				if (!ingredient.apply(grid.getStackInRowAndColumn(i, j))) {
-					return false;
-				}
+				
+				// if they aren't the same, abort
+				if(!(ingredient.apply(grid.getStackInRowAndColumn(i, j)))) return false;
 			}
 		}
 
