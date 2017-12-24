@@ -35,7 +35,9 @@ public abstract class ManagerCrafting {
 		gridWidth = width;
 		gridHeight = height;
 	}
-
+	
+	
+	
     /**
      * Adds a shaped recipe to the games recipe list.
      * By mojang and/or forge

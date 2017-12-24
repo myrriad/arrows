@@ -1,18 +1,15 @@
 package phlaxyr.forcearrows.items;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
-import phlaxyr.forcearrows.ForceArrows;
 import phlaxyr.forcearrows.event.ArrowManager;
 
 public class ItemTriggerShears extends ItemCommon{	
 	
-	private final ArrowManager.Delegate renderer;
+	public final ArrowManager.Delegate renderer;
 	public ItemTriggerShears(ArrowManager.Delegate renderer2)
 	{
 		super(CreativeTabs.MISC);
@@ -22,6 +19,7 @@ public class ItemTriggerShears extends ItemCommon{
 	@Override
     public void onCreated(ItemStack stack, World worldIn, EntityPlayer playerIn)
     {
+		/*
 		super.onCreated(stack, worldIn, playerIn);
 		Minecraft mc = Minecraft.getMinecraft();
 		// EnumFacing c = mc.objectMouseOver.sideHit;
@@ -40,14 +38,14 @@ public class ItemTriggerShears extends ItemCommon{
 			// Do nothing because we'll worry about what happens when the item
 			// Gets in the inventory
 			
-		} else if(second.equals("onTake")/*first.equals("onCrafting")*/){
+		} else if(second.equals("onTake")/*first.equals("onCrafting")*//*){
 			// yay it's single take
-			// Destroy the item, since it shouldn't be here
+			// Destroy the item, since it shouldn't be here*/
 			stack.setCount(0);
 		
 			// make the ticking start
-			renderer.obj.addShear(worldIn, playerIn);
-		}
+			// renderer.obj.addShear(worldIn, playerIn);
+		// }
 		
 		
     }
@@ -57,12 +55,11 @@ public class ItemTriggerShears extends ItemCommon{
 	//@Override
 	public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected)
 	{
-		super.onUpdate(stack, worldIn, entityIn, itemSlot, isSelected);
-		
+		super.onUpdate(stack, worldIn, entityIn, itemSlot, isSelected);		
 		// destroy: we shouldn't be able to get this
 		stack.setCount(0);
-		
-		renderer.obj.addShear(worldIn, entityIn);
+//		
+//		renderer.obj.addShear(worldIn, entityIn);
 	}
 	//             net.minecraftforge.fml.common.FMLCommonHandler.instance().firePlayerCraftingEvent(this.player, stack, craftMatrix);
 	

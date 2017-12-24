@@ -75,7 +75,7 @@ dependencies {
 }
 
 runClient {
-	jvmArgs "-Dfml.coreMods.load=phlaxyr.forcearrows.codepatcher.PatchPlugin"
+	jvmArgs "-Dfml.coreMods.load=phlaxyr.forcearrows.codepatcher.ForceArrowsCoremodPlugin"
 	
 }
 

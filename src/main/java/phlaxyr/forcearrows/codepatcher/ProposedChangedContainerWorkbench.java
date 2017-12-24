@@ -40,12 +40,15 @@ public class ProposedChangedContainerWorkbench extends ContainerWorkbench{
             ItemStack itemstack = ItemStack.EMPTY;
             IRecipe irecipe = CraftingManager.findMatchingRecipe(inv, worldIn); //
             //* patch start
-            irecipe = ArrowManager.recipe(this, worldIn, inv, irecipe);
+            // irecipe = ArrowManager.recipe(this, worldIn, inv, irecipe);
             // patch end */
             if (irecipe != null && (irecipe.isHidden() || !worldIn.getGameRules().getBoolean("doLimitedCrafting") || entityplayermp.getRecipeBook().containsRecipe(irecipe)))
             {
                 res.setRecipeUsed(irecipe);
                 itemstack = irecipe.getCraftingResult(inv);
+                // patch start
+                itemstack = ArrowManager.checkCustomRecipe(inv, worldIn, itemstack);
+                // patch end
             }
 
             res.setInventorySlotContents(0, itemstack);
@@ -63,9 +66,7 @@ public class ProposedChangedContainerWorkbench extends ContainerWorkbench{
     	
     	ItemStack itemstack = ItemStack.EMPTY;
         Slot slot = this.inventorySlots.get(index);
-        // Start patch
-        if(ArrowManager.onCraftArrow(this, slot,  pos, world)) return ItemStack.EMPTY;
-        // End patch
+        
         
         
         
@@ -74,9 +75,10 @@ public class ProposedChangedContainerWorkbench extends ContainerWorkbench{
             ItemStack itemstack1 = slot.getStack();
             itemstack = itemstack1.copy();
 
-            if (index == 0)
-            {
-                
+            if (index == 0) {
+                // Start patch
+            	if(ArrowManager.onCraftArrow(this, pos, world)) return ItemStack.EMPTY;
+            	// End patch
             	itemstack1.getItem().onCreated(itemstack1, this.world, playerIn);
 
                 if (!this.mergeItemStack(itemstack1, 10, 46, true))

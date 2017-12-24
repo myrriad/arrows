@@ -1,20 +1,15 @@
 package phlaxyr.forcearrows.event;
 
-import java.lang.reflect.Field;
-
 import net.minecraft.block.Block;
-import net.minecraft.client.Minecraft;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ContainerWorkbench;
 import net.minecraft.inventory.InventoryCrafting;
-import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import phlaxyr.forcearrows.codepatcher.PatchTransformer;
 import phlaxyr.forcearrows.crafting.ManagerCrafting;
 import phlaxyr.forcearrows.items.ItemRegistrar;
 import phlaxyr.forcearrows.util.NullableDelegate;
@@ -106,18 +101,23 @@ public class ArrowManager {
 	 * @param stack
 	 * @return
 	 */
-	public static boolean onCraftArrow(ContainerWorkbench cont, Slot slot, BlockPos bp, World w) {
-		System.out.println("oncraftarrow");
-		if(ItemStack.areItemsEqual(cont.craftResult.getStackInSlot(0), arrow_recipe.getRecipeOutput())) {
-			if(cont.getClass().equals(ContainerWorkbench.class)) { // make sure it's not a subclass
+	
+	public static boolean onCraftArrow(ContainerWorkbench cw, BlockPos bp, World w) {
+		// System.out.println("oncraftarrow");
+		if(ItemStack.areItemsEqual(cw.craftResult.getStackInSlot(0), arrow_recipe.getRecipeOutput())) {
+			if(cw.getClass().equals(ContainerWorkbench.class)) { // make sure it's not a subclass
 				if(Block.isEqualTo(w.getBlockState(bp).getBlock(), Blocks.CRAFTING_TABLE)) {
 					// success, all the conditions pass
-					cont.craftMatrix.decrStackSize(0, 1);
-					cont.craftMatrix.decrStackSize(1, 1);
-					cont.craftMatrix.decrStackSize(3, 1);
-					cont.craftMatrix.decrStackSize(4, 1);
-					cont.craftMatrix.decrStackSize(6, 1);
-					cont.craftMatrix.decrStackSize(7, 1);
+					
+					cw.craftMatrix.decrStackSize(0, 1);
+					cw.craftMatrix.decrStackSize(1, 1);
+					cw.craftMatrix.decrStackSize(3, 1);
+					cw.craftMatrix.decrStackSize(4, 1);
+					cw.craftMatrix.decrStackSize(6, 1);
+					cw.craftMatrix.decrStackSize(7, 1);
+					cw.detectAndSendChanges();
+					renderer.obj.addShear(1);
+					return true;
 				}
 			}
 			
@@ -125,7 +125,15 @@ public class ArrowManager {
 		return false;
 	}
 	
+	public static ItemStack checkCustomRecipe(InventoryCrafting inv, World world, ItemStack in) {
+		if(arrow_recipe.matches(inv, world)) return arrow_recipe.getRecipeOutput();
+		return in;
+	}
 	
+	
+	
+	
+	/*
 	public static IRecipe recipe(Container container, World worldIn, InventoryCrafting inv, IRecipe recipe) {
 		if(recipe == null) {// only if there's not a recipe
 			if(arrow_recipe.matches(inv, worldIn)) { // if it matches
@@ -144,13 +152,14 @@ public class ArrowManager {
 						
 						e.printStackTrace();
 						return recipe;
-					}*/
+					}*//*
 					
 					
-					return arrow_recipe;
+					ContainerWorkbench cw = (ContainerWorkbench) container;
+					cw.craftResult.setInventorySlotContents(0, arrow_recipe.getRecipeOutput());
 				}
 			}
 		}
 		return recipe;
-	}
+	}*/
 }

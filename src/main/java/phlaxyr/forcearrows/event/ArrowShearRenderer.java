@@ -7,9 +7,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.inventory.ContainerWorkbench;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
@@ -68,7 +67,7 @@ public class ArrowShearRenderer extends Gui{
 	}
 
 	
-	public void addShear(World worldIn, Entity entityIn)
+	public void addShear(World worldIn, Entity entityIn, BlockPos pos, ContainerWorkbench cont)
 	{
 		
 		anims.add(new ArrowShearAnimation(mc, worldIn, entityIn));
