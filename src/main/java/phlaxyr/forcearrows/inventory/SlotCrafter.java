@@ -61,6 +61,12 @@ public class SlotCrafter extends Slot
         this.onCrafting(stack);
     }
 
+    protected void onSwapCraft(int p_190900_1_)
+    {
+        this.amountCrafted += p_190900_1_;
+        //             net.minecraftforge.fml.common.FMLCommonHandler.instance().firePlayerCraftingEvent(this.player, stack, craftMatrix);
+    }
+    
     /**
      * the itemStack passed in is the output - ie, iron ingots, and pickaxes, not ore and wood.
      */

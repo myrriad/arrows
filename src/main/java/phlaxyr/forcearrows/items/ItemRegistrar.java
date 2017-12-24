@@ -1,30 +1,40 @@
 package phlaxyr.forcearrows.items;
 
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemShears;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent.Register;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
+import phlaxyr.forcearrows.ForceArrows;
+import phlaxyr.forcearrows.event.ArrowManager;
 import phlaxyr.forcearrows.registrars.Registrar;
 
 public class ItemRegistrar extends Registrar {
-	@GameRegistry.ObjectHolder("forcearrows:mass_ingot")
+	@GameRegistry.ObjectHolder(ForceArrows.MODID + ":mass_ingot")
 	public static ItemCommon item_massIngot;
 	
-	@GameRegistry.ObjectHolder("forcearrows:mass_nugget")
+	@GameRegistry.ObjectHolder(ForceArrows.MODID + ":mass_nugget")
 	public static ItemCommon item_massNugget;
 	
-	@GameRegistry.ObjectHolder("forcearrows:energy_ingot")
+	@GameRegistry.ObjectHolder(ForceArrows.MODID + ":energy_ingot")
 	public static ItemCommon item_energyIngot;
 	
-	@GameRegistry.ObjectHolder("forcearrows:energy_nugget")
+	@GameRegistry.ObjectHolder(ForceArrows.MODID + ":energy_nugget")
 	public static ItemCommon item_energyNugget;
 	
-	@GameRegistry.ObjectHolder("forcearrows:crafting_arrow")
+	@GameRegistry.ObjectHolder(ForceArrows.MODID + ":crafting_arrow")
 	public static ItemCommon item_craftingArrow;
 
+	@GameRegistry.ObjectHolder(ForceArrows.MODID + ":triggerer_no_get")
+	public static ItemCommon item_triggerer_no_get;
+	
+	@GameRegistry.ObjectHolder(ForceArrows.MODID + ":mass_shears")
+	public static ItemShears item_mass_shears;
 	
 	public static void preInit() {
 		}
@@ -47,6 +57,14 @@ public class ItemRegistrar extends Registrar {
 		registerItem(event, new ItemCommon(CreativeTabs.MATERIALS)
 				.setUnlocalizedName("crafting_arrow")
 				.setRegistryName("crafting_arrow"));
+		registerItem(event, new ItemTriggerShears(ArrowManager.renderer)
+				.setUnlocalizedName("triggerer_no_get")
+				.setRegistryName("triggerer_no_get"));
+		ItemShears mass_shears = new ItemShears();
+		mass_shears.setCreativeTab(CreativeTabs.TOOLS);
+		registerItem(event, mass_shears
+				.setUnlocalizedName("mass_shears")
+				.setRegistryName("mass_shears"));
 	}
 
     @SideOnly(Side.CLIENT)
@@ -56,6 +74,10 @@ public class ItemRegistrar extends Registrar {
         item_energyIngot.initModel();
         item_energyNugget.initModel();
         item_craftingArrow.initModel();
+        item_triggerer_no_get.initModel();
+    		ModelLoader.setCustomModelResourceLocation(
+    				item_mass_shears, 0, new ModelResourceLocation(item_mass_shears.getRegistryName(), "inventory"));
+    	
     }
 	
 	public static void init() {

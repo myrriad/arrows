@@ -8,16 +8,17 @@ import net.minecraftforge.event.RegistryEvent.Register;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import phlaxyr.forcearrows.ForceArrows;
 import phlaxyr.forcearrows.machines.crafter.c5by5.BlockCrafter5by5;
 import phlaxyr.forcearrows.registrars.Registrar;
 
 
 public class BlockRegistrar extends Registrar {
 	
-	@GameRegistry.ObjectHolder("forcearrows:mass_block")
+	@GameRegistry.ObjectHolder(ForceArrows.MODID+":mass_block")
 	public static BlockCommon block_massBlock;
 	
-	@GameRegistry.ObjectHolder("forcearrows:m_workbench")
+	@GameRegistry.ObjectHolder(ForceArrows.MODID+":m_workbench")
 	public static BlockCrafter block_mWorkbench;
 		
 	public static void registerBlocks(Register<Block> event) {

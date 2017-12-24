@@ -18,15 +18,16 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.RegistryNamespaced;
 import net.minecraft.world.World;
+import phlaxyr.forcearrows.ForceArrows;
 
 
 public abstract class ManagerCrafting {
 	/** A list of all the recipes added */
-	public static final RegistryNamespaced<ResourceLocation, IRecipe> REGISTRY = new RegistryNamespaced<>();
+	public final RegistryNamespaced<ResourceLocation, IRecipe> REGISTRY = new RegistryNamespaced<>();
 
 	private static int nextAvailableId = 0;
 	int gridWidth, gridHeight;
-	public static ManagerCrafting getInstance() {
+	public static ManagerCrafting singleton() {
 		throw new IllegalStateException("Hide this static method (?)");
 	}
 	
@@ -34,7 +35,9 @@ public abstract class ManagerCrafting {
 		gridWidth = width;
 		gridHeight = height;
 	}
-
+	
+	
+	
     /**
      * Adds a shaped recipe to the games recipe list.
      * By mojang and/or forge
@@ -96,10 +99,9 @@ public abstract class ManagerCrafting {
             } else {
             	try {
             		if(recipeComponents[i + 1] == null) {
-            			System.out.println("recipeComp is null!");
+            			ForceArrows.lumberjack.info("recipeComp is null!");
 					} else {
-						Class<?> c = recipeComponents[i + 1].getClass();
-						System.out.print(c.getSimpleName());
+						// Class<?> c = recipeComponents[i + 1].getClass();
 					}
             	} catch (Exception e) {
             		e.printStackTrace();
@@ -127,16 +129,22 @@ public abstract class ManagerCrafting {
 
         }
 
-        System.err.println("WIDTH: "+j);
-        System.err.println("HEIGHT: "+k);
+        // System.err.println("WIDTH: "+j);
+        // System.err.println("HEIGHT: "+k);
+        /*
         for(Ingredient ingr:nnlIngr) {
         	for(ItemStack testIStack:ingr.getMatchingStacks()) {
-        		System.err.println("INGREDIENT: "+testIStack.getDisplayName());
+        	//	System.err.println("INGREDIENT: "+testIStack.getDisplayName());
         	}
         }
-        System.err.println("RESULT: "+stack.getDisplayName());
+        // System.err.println("RESULT: "+stack.getDisplayName());
+         * */
+         
+        if(gridWidth == j && gridHeight == k) {
+        	// TODO shapedrecipes of custom type
+         }
         
-        ShapedRecipes shapedrecipes = new RecipeShapedCommon(j, k, nnlIngr, stack, gridWidth, gridHeight);
+        ShapedRecipes shapedrecipes = new ARecipeShaped(j, k, nnlIngr, stack, gridWidth, gridHeight);
         register(recipeRegistryName,shapedrecipes);
         return shapedrecipes;
     }
@@ -173,11 +181,11 @@ public abstract class ManagerCrafting {
 
         register(recipeRegistryName, new ShapelessRecipes("",stack, list));
     }
-	public static void register(String name, IRecipe recipe) {
+	public void register(String name, IRecipe recipe) {
 		register(new ResourceLocation(name), recipe);
 	}
 
-	public static void register(ResourceLocation name, IRecipe recipe) {
+	public void register(ResourceLocation name, IRecipe recipe) {
 		if (REGISTRY.containsKey(name)) {
 			throw new IllegalStateException("Duplicate recipe ignored with ID " + name);
 		} else {
@@ -230,7 +238,7 @@ public abstract class ManagerCrafting {
 	}
 
 	@Nullable
-	public static IRecipe getRecipe(ResourceLocation name) {
+	public IRecipe getRecipe(ResourceLocation name) {
 		return REGISTRY.getObject(name);
 	}
 }

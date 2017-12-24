@@ -19,15 +19,25 @@ public class Manager5by5 extends ManagerCrafting {
 
 	}	
 	public void init() {
-		this.oldAddRecipe(new ItemStack(ItemRegistrar.item_massIngot),"formaelis_via_nugget", new Object[]{
-					"..E..",
+		this.oldAddRecipe(new ItemStack(ItemRegistrar.item_massIngot),"mass_via_nugget", new Object[]{
+					".....",
 					".NNN.",
+					"ENNNE",
 					".NNN.",
-					".NNN.",
-					"E...E",
+					".....",
 					
 	                  'E', ItemRegistrar.item_energyNugget,
 	                  'N', ItemRegistrar.item_massNugget// note carefully - 'E' not "E" !
 			});
+		this.oldAddRecipe(new ItemStack(ItemRegistrar.item_energyIngot), "energy_via_nugget", new Object[]{
+					".....",
+					".EEE.",
+					"MEEEM",
+					".EEE.",
+					".....",
+					
+					'M', ItemRegistrar.item_massNugget,
+					'E', ItemRegistrar.item_energyNugget
+		});
 		}
 }

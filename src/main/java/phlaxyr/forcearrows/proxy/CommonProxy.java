@@ -8,6 +8,7 @@ import net.minecraftforge.event.RegistryEvent.Register;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import phlaxyr.forcearrows.blocks.BlockRegistrar;
+import phlaxyr.forcearrows.event.ArrowManager;
 import phlaxyr.forcearrows.items.ItemRegistrar;
 import phlaxyr.forcearrows.machines.crafter.c5by5.Manager5by5;
 import phlaxyr.forcearrows.tile.TileRegistrar;
@@ -20,13 +21,15 @@ public abstract class CommonProxy {
 		ItemRegistrar.preInit();
 
 		TileRegistrar.preInit();
+		
 	}
 	public void init() {
 		BlockRegistrar.init();
 		ItemRegistrar.init();
 		TileRegistrar.init();
-		
 		Manager5by5.getInstance().init();
+		ArrowManager.init();
+
 	}
 	public void postInit() {
 		BlockRegistrar.postInit();
