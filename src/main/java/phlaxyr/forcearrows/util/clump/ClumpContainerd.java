@@ -6,10 +6,11 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import phlaxyr.forcearrows.gui.GuiCommon;
+import phlaxyr.forcearrows.client.gui.GuiCommon;
 import phlaxyr.forcearrows.inventory.ContainerCommon;
 import phlaxyr.forcearrows.tile.TileCommon;
 
+@SuppressWarnings("rawtypes")
 @Deprecated
 public class ClumpContainerd<C extends ContainerCommon, G extends GuiCommon> {
 	private ResourceLocation guiLoc;

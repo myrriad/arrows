@@ -9,13 +9,13 @@ import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.ingredients.IIngredients;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
-import phlaxyr.forcearrows.crafting.ARecipeShaped;
+import phlaxyr.forcearrows.crafting.ShapedRecipeXbyX;
 
-public class CrafterRecipeShapedWrapper extends CrafterRecipeWrapper<ARecipeShaped> {
+public class JeiShapedRecipeXbyX extends JeiRecipeXbyX<ShapedRecipeXbyX> {
 
-	private static int craftOutputSlot = 0;
+	// private static int craftOutputSlot = 0;
 	private static int craftInputSlot1 = 1;
-	public CrafterRecipeShapedWrapper(ARecipeShaped recipe)
+	public JeiShapedRecipeXbyX(ShapedRecipeXbyX recipe)
 	{
 		super(recipe);
 	}
@@ -36,7 +36,7 @@ public class CrafterRecipeShapedWrapper extends CrafterRecipeWrapper<ARecipeShap
 	}
 
 	@Override
-	public List<List<ItemStack>> getRecipeInputs(ARecipeShaped recipe)
+	public List<List<ItemStack>> getRecipeInputs(ShapedRecipeXbyX recipe)
 	{
 		List<List<ItemStack>> retn = new ArrayList<>();
 		for(Ingredient ingr : recipe.getIngredients()) {

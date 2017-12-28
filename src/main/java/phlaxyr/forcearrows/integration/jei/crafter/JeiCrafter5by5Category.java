@@ -1,14 +1,13 @@
-package phlaxyr.forcearrows.integration.jei.crafter.c5by5;
+package phlaxyr.forcearrows.integration.jei.crafter;
 
 import mezz.jei.api.IGuiHelper;
 import net.minecraft.util.ResourceLocation;
 import phlaxyr.forcearrows.ForceArrows;
-import phlaxyr.forcearrows.integration.jei.crafter.CrafterRecipeCategory;
 
-public class Crafter5by5RecipeCategory extends CrafterRecipeCategory{
+public class JeiCrafter5by5Category extends JeiCrafterXbyXCategory{
 
 
-	public Crafter5by5RecipeCategory(IGuiHelper guiHelper)
+	public JeiCrafter5by5Category(IGuiHelper guiHelper)
 	{
 		super(guiHelper, new ResourceLocation(ForceArrows.MODID, "textures/gui/jei/craftfivefive.png"), 5, 5);
 	}

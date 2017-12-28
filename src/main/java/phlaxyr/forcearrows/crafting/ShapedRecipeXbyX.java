@@ -7,11 +7,11 @@ import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 
-public class ARecipeShaped extends ShapedRecipes implements ICrafterExtendable{
+public class ShapedRecipeXbyX extends ShapedRecipes implements IRecipeXbyX{
 
 	int gridWidth, gridHeight;
 	
-	public ARecipeShaped(int width, int height, NonNullList<Ingredient> ingredients, ItemStack result,
+	public ShapedRecipeXbyX(int width, int height, NonNullList<Ingredient> ingredients, ItemStack result,
 			int gridWidth, int gridHeight) {
 		super("", width, height, ingredients, result);
 		this.gridWidth = gridWidth;
@@ -92,7 +92,7 @@ public class ARecipeShaped extends ShapedRecipes implements ICrafterExtendable{
 		return true;
 	}
 	/*
-	public static ARecipeShaped deserialize(JsonObject jsonObject, int gridWidth, int gridHeight) {
+	public static ShapedRecipeXbyX deserialize(JsonObject jsonObject, int gridWidth, int gridHeight) {
 		Map<String, Ingredient> map = deserializeKey(JsonUtils.getJsonObject(jsonObject, "key"));
 		String[] astring = shrink(patternFromJson(
 				JsonUtils.getJsonArray(jsonObject, "pattern"),
@@ -102,7 +102,7 @@ public class ARecipeShaped extends ShapedRecipes implements ICrafterExtendable{
 		int j = astring.length;
 		NonNullList<Ingredient> nonnulllist = deserializeIngredients(astring, map, i, j);
 		ItemStack itemstack = deserializeItem(JsonUtils.getJsonObject(jsonObject, "result"), true);
-		return new ARecipeShaped(i, j, nonnulllist, itemstack, gridWidth, gridHeight);
+		return new ShapedRecipeXbyX(i, j, nonnulllist, itemstack, gridWidth, gridHeight);
 	}
 
 	//PRIVATE!

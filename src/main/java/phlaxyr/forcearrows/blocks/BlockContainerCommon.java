@@ -30,13 +30,14 @@ public abstract class BlockContainerCommon extends BlockContainer {
 		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0,
 				new ModelResourceLocation(getRegistryName(), "inventory"));
 	}
-
+	
 	public BlockContainerCommon(Material m, CreativeTabs tab, int guiID)
 	{
 		super(m);
 		this.guiID = guiID;
 		this.setCreativeTab(tab); // the block will appear on the Blocks tab.
 	}
+	
 
 
 	
@@ -45,6 +46,7 @@ public abstract class BlockContainerCommon extends BlockContainer {
 	// Called when the block is right clicked
 	// In this block it is used to open the blocks gui when right clicked by a
 	// player
+	
 	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn,
 			EnumHand hand, /* ItemStack heldItem, */ EnumFacing side, float hitX, float hitY, float hitZ)

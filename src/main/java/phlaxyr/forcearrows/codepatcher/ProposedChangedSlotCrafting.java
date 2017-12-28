@@ -8,10 +8,7 @@ import net.minecraft.inventory.InventoryCraftResult;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.inventory.SlotCrafting;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.util.NonNullList;
-import phlaxyr.forcearrows.event.ArrowManager;
 
 public class ProposedChangedSlotCrafting extends SlotCrafting{
 

@@ -1,16 +1,16 @@
 package phlaxyr.forcearrows.event;
 
 import net.minecraft.block.Block;
+
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ContainerWorkbench;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import phlaxyr.forcearrows.crafting.ManagerCrafting;
+import phlaxyr.forcearrows.crafting.CraftXbyXManager;
 import phlaxyr.forcearrows.items.ItemRegistrar;
 import phlaxyr.forcearrows.util.NullableDelegate;
 
@@ -21,7 +21,7 @@ public class ArrowManager {
 	
 	
 	
-	public static final ManagerCrafting CUSTOM_MANAGER = new ManagerCrafting(3, 3){};
+	public static final CraftXbyXManager CUSTOM_MANAGER = new CraftXbyXManager(3, 3){};
 	public static void init() {
 		
 		arrow_recipe = 

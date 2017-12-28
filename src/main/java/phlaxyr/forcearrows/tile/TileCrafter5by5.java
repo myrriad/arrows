@@ -1,6 +1,4 @@
-package phlaxyr.forcearrows.machines.crafter.c5by5;
-
-import phlaxyr.forcearrows.tile.TileCrafter;
+package phlaxyr.forcearrows.tile;
 
 public class TileCrafter5by5 extends TileCrafter {
 

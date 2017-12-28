@@ -1,27 +1,35 @@
-package phlaxyr.forcearrows.gui;
+package phlaxyr.forcearrows.client.gui;
 
 import java.awt.Color;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import phlaxyr.forcearrows.inventory.ContainerCommon;
+import phlaxyr.forcearrows.machines.IMachine;
 import phlaxyr.forcearrows.tile.TileCommon;
 
-public abstract class GuiCommon<C extends ContainerCommon<T>, T extends TileCommon> extends GuiContainer{
+@SideOnly(Side.CLIENT)
+public abstract class GuiCommon<T extends TileCommon, C extends ContainerCommon<T>> extends GuiContainer{
 
 	private final ResourceLocation tex;
 	
     protected TileCommon tile;
 
 	
-	public GuiCommon(int textureSizeX, int textureSizeY, C cont, ResourceLocation tex) {
+	public GuiCommon(int textureSizeX, int textureSizeY, ContainerCommon<T> cont, ResourceLocation tex) {
 		super(cont);
 		this.tile = cont.getTile();
 		this.tex=tex;
     	this.xSize = textureSizeX;
     	this.ySize = textureSizeY;
 	}
+	public GuiCommon(ContainerCommon<T> cont, IMachine<?, ?> m) {
+		this(m.getTextureSizeX(), m.getTextureSizeY(), cont, m.getGuiTex());
+	}
+	// standard stuffs
     @Override
     protected void drawGuiContainerBackgroundLayer(float par1, int par2, int par3)
     {

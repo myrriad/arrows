@@ -16,7 +16,7 @@ public class Registrar {
 		
 	}
 	protected static void registerItem(Register<Item> event, Block staticBlock) {
-		event.getRegistry().register(new ItemBlock(staticBlock).setRegistryName(staticBlock.getRegistryName()));
+		event.getRegistry().register(new ItemBlock(staticBlock).setRegistryName(staticBlock.getRegistryName())); // here
 	}
 	protected static void registerItem(Register<Item> event, Item newItem) {
 		event.getRegistry().register(newItem);
@@ -24,4 +24,5 @@ public class Registrar {
 	protected static void registerBlock(Register<Block> event, Block newBlock) {
 		event.getRegistry().register(newBlock);
 	}
+
 }

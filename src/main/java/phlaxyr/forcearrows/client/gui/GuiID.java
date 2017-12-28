@@ -1,4 +1,4 @@
-package phlaxyr.forcearrows.gui;
+package phlaxyr.forcearrows.client.gui;
 
 public class GuiID {
 	private GuiID(){}

@@ -16,7 +16,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import phlaxyr.forcearrows.ForceArrows;
 import phlaxyr.forcearrows.blocks.BlockContainerCommon;
-import phlaxyr.forcearrows.gui.GuiID;
+import phlaxyr.forcearrows.client.gui.GuiID;
 
 public class BlockTransformer extends BlockContainerCommon {
 	public int guiID = GuiID.TRANSFORMER_GUI;

@@ -1,23 +1,25 @@
-package phlaxyr.forcearrows.machines.crafter.c5by5;
+package phlaxyr.forcearrows.inventory;
 
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import phlaxyr.forcearrows.inventory.ContainerCrafter;
+import phlaxyr.forcearrows.crafting.Craft5by5Manager;
+import phlaxyr.forcearrows.tile.TileCrafter5by5;
 
-public class ContainerCrafter5by5 extends ContainerCrafter<TileCrafter5by5, Manager5by5>{
+@Deprecated
+public class DeprecatedContainerCrafter5by5 extends ContainerCrafterXbyX<TileCrafter5by5>{
 	
 	/*
-	public ContainerCrafter5by5(InventoryPlayer playerInventory, World worldIn,
-			BlockPos posIn, TileCommon tile, ManagerCrafting manager) {
+	public DeprecatedContainerCrafter5by5(InventoryPlayer playerInventory, World worldIn,
+			BlockPos posIn, TileCommon tile, CraftXbyXManager manager) {
 		super(playerInventory, worldIn, posIn, tile, manager, 5, 5);
 	}*/
 	/***
 	 * Required in clump: constructor args, tile, manager
 	 * @param clump
 	 */
-	public ContainerCrafter5by5(InventoryPlayer inv, TileCrafter5by5 tile, World world,
-			BlockPos pos, Manager5by5 manager) {
+	public DeprecatedContainerCrafter5by5(InventoryPlayer inv, TileCrafter5by5 tile, World world,
+			BlockPos pos, Craft5by5Manager manager) {
 		super(inv, tile, world, pos, manager, 5, 5);
 		
 	}

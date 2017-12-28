@@ -1,11 +1,14 @@
-package phlaxyr.forcearrows.gui;
+package phlaxyr.forcearrows.client.gui;
 
 import java.util.HashMap;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.IGuiHandler;
+import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.relauncher.Side;
 
+@SideOnly(Side.CLIENT)
 public class GuiHandlerRegistrar implements IGuiHandler{
 	public void registerGuiHandler(IGuiHandler handler, int guiID)
 	{

@@ -1,21 +1,23 @@
 package phlaxyr.forcearrows.blocks;
 
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import phlaxyr.forcearrows.machines.Machine;
 import phlaxyr.forcearrows.tile.TileCrafter;
 
-public abstract class BlockCrafter extends BlockContainerCommon {
-
+public class BlockCrafter extends BlockMachine {
+/*
 	public BlockCrafter(Material m, int guiID)
 	{
 		super(m,CreativeTabs.BUILDING_BLOCKS,guiID);
+	}*/
+	public BlockCrafter(Machine<?,?> m) {
+		super(m);
 	}
 	@SideOnly(Side.CLIENT)
 	public BlockRenderLayer getBlockLayer(){

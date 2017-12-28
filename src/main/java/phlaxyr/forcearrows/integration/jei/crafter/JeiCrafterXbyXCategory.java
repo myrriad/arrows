@@ -14,8 +14,8 @@ import phlaxyr.forcearrows.ForceArrows;
 
 
 // see https://github.com/mezz/JustEnoughItems/blob/1.12/src/main/java/mezz/jei/plugins/vanilla/crafting/CraftingRecipeCategory.java
-// mostly writted by the jei team
-public abstract class CrafterRecipeCategory implements IRecipeCategory<IRecipeWrapper>{
+// mostly written by the jei team
+public abstract class JeiCrafterXbyXCategory implements IRecipeCategory<IRecipeWrapper>{
 	public static final int craftOutputSlot = 0;
 	public static final int craftInputSlot1 = 1;
 
@@ -31,17 +31,16 @@ public abstract class CrafterRecipeCategory implements IRecipeCategory<IRecipeWr
 	
 	
 	
-	public CrafterRecipeCategory(IGuiHelper guiHelper, ResourceLocation gui, int gridSlotsWidth, int gridSlotsHeight) {
+	public JeiCrafterXbyXCategory(IGuiHelper guiHelper, ResourceLocation gui, int gridSlotsWidth, int gridSlotsHeight) {
 		ResourceLocation location = gui;
 		background = guiHelper.createDrawable(location, 0, 0, width, height);
-		title = I18n.format("gui.jei." + ForceArrows.MODID + "." + getBlockName());
+		title = I18n.format("jei." + ForceArrows.MODID + "." + getBlockName());
 		this.gridX = gridSlotsWidth;
 		this.gridY = gridSlotsHeight;
 	}
 	
 	
-	public abstract String getBlockName(); // ie. craftingTable
-	
+
 
 	@Override
 	public String getTitle() {
@@ -53,6 +52,8 @@ public abstract class CrafterRecipeCategory implements IRecipeCategory<IRecipeWr
 		return ForceArrows.NAME;
 	}
 
+	public abstract String getBlockName(); // ie. craftingTable
+	
 	@Override
 	public IDrawable getBackground() {
 		return background;

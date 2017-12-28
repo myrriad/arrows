@@ -8,7 +8,7 @@ import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
-import phlaxyr.forcearrows.crafting.ManagerCrafting;
+import phlaxyr.forcearrows.crafting.CraftXbyXManager;
 
 public class SlotCrafter extends Slot
 {
@@ -19,9 +19,9 @@ public class SlotCrafter extends Slot
     /** The number of items that have been crafted so far. Gets passed to ItemStack.onCrafting before being reset. */
     private int amountCrafted;
 
-    private final ManagerCrafting MANAGER;
+    private final CraftXbyXManager MANAGER;
     
-    public SlotCrafter(ManagerCrafting manager, EntityPlayer player, InventoryCrafting craftingInventory, IInventory inventoryIn, int slotIndex, int xPosition, int yPosition)
+    public SlotCrafter(CraftXbyXManager manager, EntityPlayer player, InventoryCrafting craftingInventory, IInventory inventoryIn, int slotIndex, int xPosition, int yPosition)
     {
         super(inventoryIn, slotIndex, xPosition, yPosition);
         MANAGER = manager;

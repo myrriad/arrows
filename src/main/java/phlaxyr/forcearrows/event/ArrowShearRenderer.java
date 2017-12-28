@@ -70,7 +70,7 @@ public class ArrowShearRenderer extends Gui{
 	public void addShear(World worldIn, Entity entityIn, BlockPos pos, ContainerWorkbench cont)
 	{
 		
-		anims.add(new ArrowShearAnimation(mc, worldIn, entityIn));
+		anims.add(new ArrowShearAnimation(mc, worldIn/*, entityIn*/));
 		active = true;
 	}
 	private static int SHEAR_ADD_FREQ = 24;

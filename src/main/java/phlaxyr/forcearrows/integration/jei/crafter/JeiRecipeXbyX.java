@@ -7,13 +7,13 @@ import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.wrapper.ICustomCraftingRecipeWrapper;
 import net.minecraft.item.ItemStack;
-import phlaxyr.forcearrows.crafting.ICrafterExtendable;
+import phlaxyr.forcearrows.crafting.IRecipeXbyX;
 
 /**
  * Created by covers1624 on 31/07/2017.
  * Originally for Avaritia
  */
-public abstract class CrafterRecipeWrapper<T extends ICrafterExtendable> implements ICustomCraftingRecipeWrapper{
+public abstract class JeiRecipeXbyX<T extends IRecipeXbyX> implements ICustomCraftingRecipeWrapper{
 	
 	
 	private static final int craftOutputSlot = 0;
@@ -33,7 +33,7 @@ public abstract class CrafterRecipeWrapper<T extends ICrafterExtendable> impleme
 	
 	private final T recipe;
 
-	public CrafterRecipeWrapper(T recipe) {
+	public JeiRecipeXbyX(T recipe) {
 		this.recipe = recipe;
 	}
 	ICustomCraftingRecipeWrapper wrap;

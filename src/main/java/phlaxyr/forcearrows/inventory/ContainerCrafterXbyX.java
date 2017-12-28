@@ -13,9 +13,9 @@ import net.minecraft.network.play.server.SPacketSetSlot;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import phlaxyr.forcearrows.ForceArrows;
-import phlaxyr.forcearrows.crafting.ManagerCrafting;
+import phlaxyr.forcearrows.crafting.CraftXbyXManager;
 import phlaxyr.forcearrows.tile.TileCrafter;
-public abstract class ContainerCrafter<T extends TileCrafter, M extends ManagerCrafting> extends ContainerCommon<T>
+public abstract class ContainerCrafterXbyX<T extends TileCrafter> extends ContainerCommon<T>
 {
 	/** COPY-PASTA'D */
     /** The crafting matrix inventory, except adjustable. */
@@ -23,7 +23,7 @@ public abstract class ContainerCrafter<T extends TileCrafter, M extends ManagerC
 
     private IInventory craftResult;
     
-    private final ManagerCrafting MANAGER;
+    private final CraftXbyXManager MANAGER;
     
     /**measured at the upper left corner (inside the black border)*/
     public abstract int resultX();
@@ -38,8 +38,8 @@ public abstract class ContainerCrafter<T extends TileCrafter, M extends ManagerC
     public final int gridSlotLengthY;
     
     /*
-    public ContainerCrafter(InventoryPlayer playerInventory, World worldIn, 
-    		BlockPos posIn, TileCommon tile, ManagerCrafting manager, 
+    public ContainerCrafterXbyX(InventoryPlayer playerInventory, World worldIn, 
+    		BlockPos posIn, TileCommon tile, CraftXbyXManager manager, 
     		int gridX, int gridY)
     {
     	super(playerInventory, worldIn, posIn, tile);
@@ -70,7 +70,7 @@ public abstract class ContainerCrafter<T extends TileCrafter, M extends ManagerC
      * @param gridX
      * @param gridY
      */
-    public ContainerCrafter(InventoryPlayer inv, T tile, World world, BlockPos pos, M manager, int gridX, int gridY) {
+    public ContainerCrafterXbyX(InventoryPlayer inv, T tile, World world, BlockPos pos, CraftXbyXManager manager, int gridX, int gridY) {
     	super(inv, tile, world, pos);
         MANAGER = manager;
         

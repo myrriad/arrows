@@ -12,11 +12,13 @@ import phlaxyr.forcearrows.blocks.BlockRegistrar;
 import phlaxyr.forcearrows.event.ArrowManager;
 import phlaxyr.forcearrows.event.ArrowShearRenderer;
 import phlaxyr.forcearrows.items.ItemRegistrar;
+import phlaxyr.forcearrows.machines.MachineRegistrarClient;
 
 @Mod.EventBusSubscriber
 public class ClientProxy extends CommonProxy{
 	public void preInit() {
 		super.preInit();
+		MachineRegistrarClient.preInit();
 	}
 	public void init() {
 		super.init();
@@ -46,5 +48,6 @@ public class ClientProxy extends CommonProxy{
     public static void registerModels(ModelRegistryEvent event) {
         BlockRegistrar.initModels();
         ItemRegistrar.initModels();
+        MachineRegistrarClient.initModels();
     }
 }

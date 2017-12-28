@@ -5,9 +5,9 @@ item.energy_nugget.name=Energy Nugget
 item.triggerer_no_get.name=Collect This To Fire
 item.mass_shears.name=Mass Shears
 
-tile.m_workbench.name=Expanded Crafting Table
+tile.m_workbench.name=Extended Crafting Table
 tile.mass_block.name=Mass Block
 
-gui.jei.forcearrows.craftfivefive=Expanded Crafting
+jei.forcearrows.craftfivefive=Extended Crafting
 
-container.m_workbench.name=Modelmaker's Bench
+container.m_workbench.name=Extended Crafting

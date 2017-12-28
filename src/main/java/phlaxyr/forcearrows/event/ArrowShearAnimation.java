@@ -5,7 +5,6 @@ import org.lwjgl.opengl.GL11;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiCrafting;
-import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
@@ -16,12 +15,14 @@ import phlaxyr.forcearrows.ForceArrows;
 public class ArrowShearAnimation {
 	private Minecraft mc;
 	private World world;
-	private Entity entity;
+	// private Entity entity;
 	
-	public ArrowShearAnimation(Minecraft mc, World worldIn, Entity entityIn) {
+	
+	
+	public ArrowShearAnimation(Minecraft mc, World worldIn/*, Entity entityIn*/) {
 		this(mc, 0);
 		this.world = worldIn;
-		this.entity = entityIn;
+		// this.entity = entityIn;
 	}
 	public ArrowShearAnimation(Minecraft mc, int stage) {
 		this.mc = mc;
@@ -81,6 +82,7 @@ public class ArrowShearAnimation {
 	public boolean ended(){
 		if(stage > MAX) return true;
 		return false;
+		
 	}
 	public boolean isTable(){
 

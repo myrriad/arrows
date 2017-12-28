@@ -8,10 +8,10 @@ import net.minecraftforge.event.RegistryEvent.Register;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import phlaxyr.forcearrows.blocks.BlockRegistrar;
+import phlaxyr.forcearrows.crafting.Craft5by5Manager;
 import phlaxyr.forcearrows.event.ArrowManager;
 import phlaxyr.forcearrows.items.ItemRegistrar;
-import phlaxyr.forcearrows.machines.crafter.c5by5.Manager5by5;
-import phlaxyr.forcearrows.tile.TileRegistrar;
+import phlaxyr.forcearrows.machines.MachineRegistrar;
 
 @Mod.EventBusSubscriber
 public abstract class CommonProxy {
@@ -20,14 +20,18 @@ public abstract class CommonProxy {
 		BlockRegistrar.preInit();
 		ItemRegistrar.preInit();
 
-		TileRegistrar.preInit();
+		// TileRegistrar.preInit();
+		MachineRegistrar.preInit();
 		
 	}
 	public void init() {
 		BlockRegistrar.init();
 		ItemRegistrar.init();
-		TileRegistrar.init();
-		Manager5by5.getInstance().init();
+		
+		// TileRegistrar.init();
+		MachineRegistrar.preInit();
+		
+		Craft5by5Manager.getInstance().init();
 		ArrowManager.init();
 
 	}
@@ -35,16 +39,19 @@ public abstract class CommonProxy {
 		BlockRegistrar.postInit();
 		ItemRegistrar.postInit();
 
-		TileRegistrar.postInit();
+		// TileRegistrar.postInit();
+		MachineRegistrar.postInit();
 	}
 	@SubscribeEvent
 	public static void registerBlocks(Register<Block> event) {
 		BlockRegistrar.registerBlocks(event);
+		MachineRegistrar.registerBlocks(event);
 	}
 	@SubscribeEvent
 	public static void registerItems(Register<Item> event) {
 		ItemRegistrar.registerItems(event);
 		BlockRegistrar.registerItems(event);
+		MachineRegistrar.registerItems(event);
 	}
 
 	abstract public boolean playerIsInCreativeMode(EntityPlayer player);

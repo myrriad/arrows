@@ -1,23 +1,26 @@
-package phlaxyr.forcearrows.machines.crafter.c5by5;
+package phlaxyr.forcearrows.crafting;
 
 import net.minecraft.item.ItemStack;
-import phlaxyr.forcearrows.crafting.ManagerCrafting;
 import phlaxyr.forcearrows.items.ItemRegistrar;
 
-public class Manager5by5 extends ManagerCrafting {
+public class Craft5by5Manager extends CraftXbyXManager {
 
 	
-	private static Manager5by5 INSTANCE = new Manager5by5();
+	private static Craft5by5Manager INSTANCE = new Craft5by5Manager();
 	
 	
-	public static Manager5by5 getInstance() {
+	public static Craft5by5Manager getInstance() {
 		return INSTANCE;
 	}
 	
-	private Manager5by5() {
+	private Craft5by5Manager() {
 		super(5, 5);
 
 	}	
+	public void preInit(){}public void postInit(){} // filler
+	
+	
+	
 	public void init() {
 		this.oldAddRecipe(new ItemStack(ItemRegistrar.item_massIngot),"mass_via_nugget", new Object[]{
 					".....",

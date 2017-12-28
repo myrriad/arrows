@@ -21,17 +21,18 @@ import net.minecraft.world.World;
 import phlaxyr.forcearrows.ForceArrows;
 
 
-public abstract class ManagerCrafting {
+public abstract class CraftXbyXManager {
 	/** A list of all the recipes added */
 	public final RegistryNamespaced<ResourceLocation, IRecipe> REGISTRY = new RegistryNamespaced<>();
-
+	
+	
 	private static int nextAvailableId = 0;
 	int gridWidth, gridHeight;
-	public static ManagerCrafting singleton() {
+	public static CraftXbyXManager singleton() {
 		throw new IllegalStateException("Hide this static method (?)");
 	}
 	
-	protected ManagerCrafting(int width, int height) {
+	protected CraftXbyXManager(int width, int height) {
 		gridWidth = width;
 		gridHeight = height;
 	}
@@ -144,7 +145,7 @@ public abstract class ManagerCrafting {
         	// TODO shapedrecipes of custom type
          }
         
-        ShapedRecipes shapedrecipes = new ARecipeShaped(j, k, nnlIngr, stack, gridWidth, gridHeight);
+        ShapedRecipes shapedrecipes = new ShapedRecipeXbyX(j, k, nnlIngr, stack, gridWidth, gridHeight);
         register(recipeRegistryName,shapedrecipes);
         return shapedrecipes;
     }
