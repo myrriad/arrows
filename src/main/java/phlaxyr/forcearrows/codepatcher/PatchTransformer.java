@@ -30,7 +30,7 @@ import org.objectweb.asm.tree.VarInsnNode;
 import net.minecraft.launchwrapper.IClassTransformer;
 import phlaxyr.forcearrows.ForceArrows;
 // import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin.TransformerExclusions;
-// import phlaxyr.forcearrows.event.ArrowManager;
+// import phlaxyr.forcearrows.craftingarrow.ArrowManager;
 
 public class PatchTransformer implements IClassTransformer {
 	// public static boolean obfuscated;
@@ -114,7 +114,7 @@ public class PatchTransformer implements IClassTransformer {
 				
 				toInject.add(new MethodInsnNode(
 						INVOKESTATIC, 
-						"phlaxyr/forcearrows/event/ArrowManager", 
+						"phlaxyr/forcearrows/craftingarrow/ArrowManager", 
 						"onCraftArrow", 
 						obfdesc(
 								"(Lnet/minecraft/inventory/ContainerWorkbench;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/world/World;)Z",false)// false);"(Lnet/minecraft/inventory/Slot;)Z",cn)
@@ -221,6 +221,6 @@ public class PatchTransformer implements IClassTransformer {
 		System.out.println(obfdesc("(Lnet/minecraft/world/World;Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/inventory/InventoryCrafting;Lnet/minecraft/inventory/InventoryCraftResult;)V", true));
 	}
 	// mv.visitVarInsn(ALOAD, 4);
-	// mv.visitMethodInsn(INVOKESTATIC, "phlaxyr/forcearrows/event/ArrowManager", "onCraftArrow", "(Lnet/minecraft/inventory/Slot;)Z", false);
+	// mv.visitMethodInsn(INVOKESTATIC, "phlaxyr/forcearrows/craftingarrow/ArrowManager", "onCraftArrow", "(Lnet/minecraft/inventory/Slot;)Z", false);
 
 }

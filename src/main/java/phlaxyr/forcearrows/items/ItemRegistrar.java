@@ -1,6 +1,8 @@
 package phlaxyr.forcearrows.items;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+
+
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemShears;
@@ -11,7 +13,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 import phlaxyr.forcearrows.ForceArrows;
-import phlaxyr.forcearrows.event.ArrowManager;
+// import phlaxyr.forcearrows.craftingarrow.ArrowManager;
 import phlaxyr.forcearrows.registrars.Registrar;
 
 public class ItemRegistrar extends Registrar {
@@ -57,7 +59,7 @@ public class ItemRegistrar extends Registrar {
 		registerItem(event, new ItemCommon(CreativeTabs.MATERIALS)
 				.setUnlocalizedName("crafting_arrow")
 				.setRegistryName("crafting_arrow"));
-		registerItem(event, new ItemTriggerShears(ArrowManager.renderer)
+		registerItem(event, new ItemTriggerShears()//ArrowManager.renderer)
 				.setUnlocalizedName("triggerer_no_get")
 				.setRegistryName("triggerer_no_get"));
 		ItemShears mass_shears = new ItemShears();

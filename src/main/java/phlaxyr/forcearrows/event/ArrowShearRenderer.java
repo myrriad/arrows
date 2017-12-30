@@ -12,7 +12,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
-
+@Deprecated
 public class ArrowShearRenderer extends Gui{
 	
 	// public static ArrowShearRenderer singleton = new ArrowShearRenderer(Minecraft.getMinecraft());

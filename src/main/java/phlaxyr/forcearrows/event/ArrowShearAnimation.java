@@ -12,6 +12,7 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import phlaxyr.forcearrows.ForceArrows;
 
+@Deprecated
 public class ArrowShearAnimation {
 	private Minecraft mc;
 	private World world;

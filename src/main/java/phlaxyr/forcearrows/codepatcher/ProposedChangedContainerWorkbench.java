@@ -14,7 +14,7 @@ import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.network.play.server.SPacketSetSlot;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import phlaxyr.forcearrows.event.ArrowManager;
+import phlaxyr.forcearrows.craftingarrow.ArrowManager;
 
 public class ProposedChangedContainerWorkbench extends ContainerWorkbench{
 

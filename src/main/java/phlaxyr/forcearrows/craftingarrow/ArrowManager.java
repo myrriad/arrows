@@ -1,6 +1,7 @@
-package phlaxyr.forcearrows.event;
+package phlaxyr.forcearrows.craftingarrow;
 
 import net.minecraft.block.Block;
+
 
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -11,12 +12,13 @@ import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import phlaxyr.forcearrows.crafting.CraftXbyXManager;
+// import phlaxyr.forcearrows.event.ArrowShearRenderer;
 import phlaxyr.forcearrows.items.ItemRegistrar;
-import phlaxyr.forcearrows.util.NullableDelegate;
+// import phlaxyr.forcearrows.util.NullableDelegate;
 
 public class ArrowManager {
-	public static final Delegate renderer = new Delegate();
-	public static class Delegate extends NullableDelegate<ArrowShearRenderer>{}
+	// public static final Delegate renderer = new Delegate();
+	// public static class Delegate extends NullableDelegate<ArrowShearRenderer>{}
 	public static IRecipe arrow_recipe;
 	
 	
@@ -116,7 +118,7 @@ public class ArrowManager {
 					cw.craftMatrix.decrStackSize(6, 1);
 					cw.craftMatrix.decrStackSize(7, 1);
 					cw.detectAndSendChanges();
-					renderer.obj.addShear(1);
+					// renderer.obj.addShear(1);
 					return true;
 				}
 			}

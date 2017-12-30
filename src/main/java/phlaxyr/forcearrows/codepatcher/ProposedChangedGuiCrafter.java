@@ -7,7 +7,7 @@ import java.util.List;
 import net.minecraft.client.gui.inventory.GuiCrafting;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.world.World;
-import phlaxyr.forcearrows.event.ArrowManager;
+import phlaxyr.forcearrows.craftingarrow.ArrowManager;
 import phlaxyr.forcearrows.event.ArrowShearAnimation;
 import net.minecraft.client.gui.inventory.GuiCrafting;
 import net.minecraft.inventory.ContainerWorkbench;

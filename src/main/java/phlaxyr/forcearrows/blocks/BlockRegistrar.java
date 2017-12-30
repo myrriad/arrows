@@ -22,6 +22,7 @@ public class BlockRegistrar extends Registrar {
     // MachineRegistrar
 
     public static void registerBlocks(Register<Block> event) {
+
     	registerBlock(event, new BlockCommon(Material.IRON, CreativeTabs.MATERIALS).setUnlocalizedName("mass_block")
     			.setRegistryName("mass_block"));
 	// registerBlock(event, new DeprecatedBlockCrafter5by5().setUnlocalizedName("m_workbench").setRegistryName("m_workbench"));

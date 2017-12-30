@@ -9,7 +9,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import phlaxyr.forcearrows.blocks.BlockRegistrar;
 import phlaxyr.forcearrows.crafting.Craft5by5Manager;
-import phlaxyr.forcearrows.event.ArrowManager;
+import phlaxyr.forcearrows.craftingarrow.ArrowManager;
 import phlaxyr.forcearrows.items.ItemRegistrar;
 import phlaxyr.forcearrows.machines.MachineRegistrar;
 
@@ -17,6 +17,10 @@ import phlaxyr.forcearrows.machines.MachineRegistrar;
 public abstract class CommonProxy {
 	
 	public void preInit() {
+		// test for crashs
+    	// net.minecraft.client.gui.GuiScreen testclient = new net.minecraft.client.gui.GuiScreen(){};
+		// good, it crashes
+		
 		BlockRegistrar.preInit();
 		ItemRegistrar.preInit();
 

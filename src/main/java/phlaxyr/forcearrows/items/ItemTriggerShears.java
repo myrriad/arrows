@@ -5,15 +5,14 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import phlaxyr.forcearrows.event.ArrowManager;
 
 public class ItemTriggerShears extends ItemCommon{	
 	
-	public final ArrowManager.Delegate renderer;
-	public ItemTriggerShears(ArrowManager.Delegate renderer2)
+	// public final ArrowManager.Delegate renderer;
+	public ItemTriggerShears()//ArrowManager.Delegate renderer2)
 	{
 		super(CreativeTabs.MISC);
-		this.renderer = renderer2;
+		//this.renderer = renderer2;
 	}
 	
 	@Override
