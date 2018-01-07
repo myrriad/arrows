@@ -48,7 +48,7 @@ public abstract class JeiRecipeXbyX<T extends IRecipeXbyX> implements ICustomCra
 	public abstract List<List<ItemStack>> getRecipeInputs(T recipe);
 	
 	protected ItemStack getRecipeOutputs(T recipe) {
-		return recipe.getRecipeOutput();
+		return recipe.getRecipeOutput().copy(); // just to be safe
 	}
 
 	

@@ -63,6 +63,9 @@ public class ItemRegistrar extends Registrar {
 				.setUnlocalizedName("triggerer_no_get")
 				.setRegistryName("triggerer_no_get"));
 		ItemShears mass_shears = new ItemShears();
+		
+		mass_shears.setMaxDamage(2400);
+		
 		mass_shears.setCreativeTab(CreativeTabs.TOOLS);
 		registerItem(event, mass_shears
 				.setUnlocalizedName("mass_shears")

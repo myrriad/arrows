@@ -28,12 +28,15 @@ public class ForceArrows
     public static CommonProxy proxy;
     
     public static Logger lumberjack;
+    static {
+    	lumberjack = LogManager.getLogger(ForceArrows.MODID);
+    	lumberjack.info("Testing logger!");
+    }
     
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
     	//lumberjack = event.getModLog();
-    	lumberjack = LogManager.getLogger(ForceArrows.MODID);
-    	lumberjack.info("Testing logger!");
+    	
     	proxy.preInit();
     }
     @EventHandler

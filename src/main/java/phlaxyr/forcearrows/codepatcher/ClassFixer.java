@@ -13,6 +13,8 @@ import org.objectweb.asm.tree.MethodNode;
 
 import com.google.common.collect.Lists;
 
+import phlaxyr.forcearrows.ForceArrows;
+
 
 class ClassFixer {
 	List<MethodFixer> fixers;
@@ -36,7 +38,7 @@ class ClassFixer {
 			obfuscated = true;
 		} else return bytes;
 		
-		System.out.println("********* INSIDE " + (obfuscated ? "OBFUSCATED" : "NORMAL") + " TRANSFORMER ABOUT TO PATCH: "+target);
+		ForceArrows.lumberjack.info("********* INSIDE " + (obfuscated ? "OBFUSCATED" : "NORMAL") + " TRANSFORMER ABOUT TO PATCH: "+target);
 
 		
 		ClassNode classNode = new ClassNode();
@@ -55,6 +57,7 @@ class ClassFixer {
 		}
 		ClassWriter writer = new ClassWriter(ClassWriter.COMPUTE_MAXS | ClassWriter.COMPUTE_FRAMES);
 		classNode.accept(writer);
+		ForceArrows.lumberjack.info("********* " + (obfuscated ? "OBFUSCATED" : "NORMAL") + " TRANSFORMER HAS FINISHED PATCHING: "+target);
 		return writer.toByteArray();
 	}
 }

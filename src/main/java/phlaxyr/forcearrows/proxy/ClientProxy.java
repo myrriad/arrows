@@ -25,6 +25,7 @@ public class ClientProxy extends CommonProxy{
 
 		// ArrowManager.renderer.obj = new ArrowShearRenderer(Minecraft.getMinecraft());
 		// MinecraftForge.EVENT_BUS.register(ArrowManager.renderer.obj);
+		// MinecraftForge.EVENT_BUS.register(new ArrowManager.EventHandlerClient());
 	}
 	public void postInit() {
 		super.postInit();

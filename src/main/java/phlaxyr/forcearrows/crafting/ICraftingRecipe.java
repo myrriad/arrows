@@ -16,7 +16,7 @@ public abstract class ICraftingRecipe implements IRecipe{
 	
 	
 	public int amountCraftable(InventoryCrafting crafting, InventoryPlayer playerinv) {
-		ItemStack result = this.getRecipeOutput();
+		ItemStack result = this.getCraftingResult(crafting);
 		int shouldcraft;
 		
 		
@@ -48,7 +48,7 @@ public abstract class ICraftingRecipe implements IRecipe{
 		return inventoryspace;
 	}
 	protected int getMaxAmtToCraftByInventorySpace(InventoryPlayer invplayer) {
-		return (int) (amtInventorySpace(invplayer) / this.getRecipeOutput().getCount());
+		return (int) (amtInventorySpace(invplayer) / this.getRecipeOutput().copy().getCount());
 	}
 	
 	public NonNullList<ItemStack> onceClick(InventoryCrafting crafting) {

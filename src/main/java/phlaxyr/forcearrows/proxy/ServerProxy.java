@@ -11,6 +11,8 @@ public class ServerProxy extends CommonProxy{
 	}
 	public void init() {
 		super.init();
+
+		
 	}
 	public void postInit() {
 		super.postInit();

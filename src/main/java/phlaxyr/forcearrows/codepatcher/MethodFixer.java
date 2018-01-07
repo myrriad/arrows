@@ -6,13 +6,14 @@ import org.objectweb.asm.tree.AbstractInsnNode;
 import org.objectweb.asm.tree.InsnList;
 import org.objectweb.asm.tree.MethodNode;
 
+import net.minecraft.util.Tuple;
 import phlaxyr.forcearrows.ForceArrows;
 
 interface MethodFixer {
 	
 	public boolean isTargetMethod(MethodNode method, boolean obf);
-	public AbstractInsnNode whereToInject(Iterator<AbstractInsnNode> iterator, boolean obf);
-	public InsnList getInsnsToInject(boolean obf);
+	public Tuple<AbstractInsnNode, Integer> whereToInject(Iterator<AbstractInsnNode> iterator, boolean obf);
+	public InsnList getInsnsToInject(boolean obf, int varCode);
 	/**
 	 * Does not check if it's the right method
 	 * Does everything else
@@ -22,11 +23,13 @@ interface MethodFixer {
 	public default void inject(MethodNode method, boolean obf) {
 		ForceArrows.lumberjack.info("Attempting to patch "+method.name);
 		Iterator<AbstractInsnNode>insns = method.instructions.iterator();
-		AbstractInsnNode injectHere = whereToInject(insns, obf);
+		Tuple<AbstractInsnNode, Integer> tuple = whereToInject(insns, obf);
+		AbstractInsnNode injectHere = tuple.getFirst();
+		int varCode = tuple.getSecond();
 		if(injectHere == null) {
 			onCodeNotFound();
 		}
-		method.instructions.insert(injectHere, getInsnsToInject(obf));
+		method.instructions.insert(injectHere, getInsnsToInject(obf, varCode));
 		ForceArrows.lumberjack.info("Patching "+method.name+" Complete!");
 	}
 	public void onCodeNotFound();

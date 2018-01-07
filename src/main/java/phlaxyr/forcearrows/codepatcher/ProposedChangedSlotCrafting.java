@@ -36,7 +36,7 @@ public class ProposedChangedSlotCrafting extends SlotCrafting{
         {
             stack.onCrafting(this.player.world, this.player, this.amountCrafted);
             // start
-           //  ArrowManager.onCraftArrow(this.craftMatrix.eventHandler, slot, bp, w)
+           //  ArrowManager.onCraftArrow(this.craftMatrix.eventHandler, slot, blockpos, w)
             
             // end
             

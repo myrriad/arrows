@@ -23,6 +23,7 @@ public class ObfUtil {
 			return "afw";
 		case "net.minecraft.inventory.InventoryCraftResult":
 			return "agl";
+		
 		case "net.minecraft.item.crafting.IRecipe":
 			return "akr";
 		case "net.minecraft.item.ItemStack":

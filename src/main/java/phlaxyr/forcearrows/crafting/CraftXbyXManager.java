@@ -12,7 +12,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.item.crafting.ShapelessRecipes;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
@@ -43,7 +42,7 @@ public abstract class CraftXbyXManager {
      * Adds a shaped recipe to the games recipe list.
      * By mojang and/or forge
      */
-    public ShapedRecipes oldAddRecipe(ItemStack stack, String recipeRegistryName, Object... recipeComponents)
+    public ShapedRecipeXbyX oldAddRecipe(ItemStack stack, String recipeRegistryName, Object... recipeComponents)
     {
         String s = ""; //concatenated version of the strings in the actual recipe
         int i = 0; // index in the object array
@@ -145,7 +144,7 @@ public abstract class CraftXbyXManager {
         	// TODO shapedrecipes of custom type
          }
         
-        ShapedRecipes shapedrecipes = new ShapedRecipeXbyX(j, k, nnlIngr, stack, gridWidth, gridHeight);
+        ShapedRecipeXbyX shapedrecipes = new ShapedRecipeXbyX(j, k, nnlIngr, stack, gridWidth, gridHeight);
         register(recipeRegistryName,shapedrecipes);
         return shapedrecipes;
     }
