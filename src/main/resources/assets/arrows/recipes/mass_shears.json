@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " M",
+        "M "
+    ],
+    "key": {
+        "M": {
+            "item": "arrows:mass_ingot"
+        }
+    },
+    "result": {
+        "item": "arrows:mass_shears"
+    }
+}

@@ -1,3 +1,0 @@
-Manifest-Version: 1.0
-FMLCorePlugin: phlaxyr.forcearrows.codepatcher.ForceArrowsCoremodPlugin
-Created-By: 1.7.0 (Oracle Corporation)
