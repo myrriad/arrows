@@ -22,7 +22,10 @@ import net.minecraft.inventory.ContainerWorkbench;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.network.play.server.SPacketSetSlot;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -39,7 +42,13 @@ public class ArrowManager {
 	// public static final Delegate renderer = new Delegate();
 	// public static class Delegate extends NullableDelegate<ArrowShearRenderer>{}
 	public static IRecipe arrow_recipe;
-	public static final CraftXbyXManager CUSTOM_MANAGER = new CraftXbyXManager(3, 3){};
+	public static final CraftXbyXManager<ShapedRecipes> CUSTOM_MANAGER = new CraftXbyXManager<ShapedRecipes>(){
+
+		@Override
+		public ShapedRecipes getNewRecipe(int width, int height, NonNullList<Ingredient> ingredients,
+				ItemStack result) {
+			return new ShapedRecipes("",width, height, ingredients, result);
+		}};
 	public static void init() {
 		
 		arrow_recipe = 

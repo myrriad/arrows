@@ -15,7 +15,7 @@ import phlaxyr.forcearrows.client.gui.GuiCommon;
 import phlaxyr.forcearrows.inventory.ContainerCommon;
 import phlaxyr.forcearrows.tile.TileCommon;
 
-public interface IMachine<T extends TileCommon, C extends ContainerCommon<T>> extends IGuiHandler{
+public interface ITemplate<T extends TileCommon, C extends ContainerCommon<T>> extends IGuiHandler{
 	public default BlockMachine getNewBlock() {
 
 		return new BlockMachine(this);

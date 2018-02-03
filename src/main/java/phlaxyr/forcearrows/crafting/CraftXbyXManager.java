@@ -17,23 +17,26 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.RegistryNamespaced;
 import net.minecraft.world.World;
+import net.minecraftforge.common.crafting.IShapedRecipe;
 import phlaxyr.forcearrows.ForceArrows;
 
 
-public abstract class CraftXbyXManager {
+public abstract class CraftXbyXManager<R extends IShapedRecipe> {
 	/** A list of all the recipes added */
 	public final RegistryNamespaced<ResourceLocation, IRecipe> REGISTRY = new RegistryNamespaced<>();
 	
+	public abstract R getNewRecipe(int width, int height, NonNullList<Ingredient> ingredients, ItemStack result);
 	
 	private static int nextAvailableId = 0;
-	int gridWidth, gridHeight;
-	public static CraftXbyXManager singleton() {
+	// int gridWidth, gridHeight;
+	public static CraftXbyXManager<?> singleton() {
 		throw new IllegalStateException("Hide this static method (?)");
 	}
 	
-	protected CraftXbyXManager(int width, int height) {
+	protected CraftXbyXManager() {// int width, int height) {
+		/*
 		gridWidth = width;
-		gridHeight = height;
+		gridHeight = height;*/
 	}
 	
 	
@@ -42,7 +45,7 @@ public abstract class CraftXbyXManager {
      * Adds a shaped recipe to the games recipe list.
      * By mojang and/or forge
      */
-    public ShapedRecipeXbyX oldAddRecipe(ItemStack stack, String recipeRegistryName, Object... recipeComponents)
+    public R oldAddRecipe(ItemStack stack, String recipeRegistryName, Object... recipeComponents)
     {
         String s = ""; //concatenated version of the strings in the actual recipe
         int i = 0; // index in the object array
@@ -140,11 +143,9 @@ public abstract class CraftXbyXManager {
         // System.err.println("RESULT: "+stack.getDisplayName());
          * */
          
-        if(gridWidth == j && gridHeight == k) {
-        	// TODO shapedrecipes of custom type
-         }
         
-        ShapedRecipeXbyX shapedrecipes = new ShapedRecipeXbyX(j, k, nnlIngr, stack, gridWidth, gridHeight);
+        
+        R shapedrecipes = getNewRecipe(j, k, nnlIngr, stack); // , gridWidth, gridHeight);
         register(recipeRegistryName,shapedrecipes);
         return shapedrecipes;
     }

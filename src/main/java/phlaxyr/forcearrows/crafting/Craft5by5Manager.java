@@ -1,9 +1,11 @@
 package phlaxyr.forcearrows.crafting;
 
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.util.NonNullList;
 import phlaxyr.forcearrows.items.ItemRegistrar;
 
-public class Craft5by5Manager extends CraftXbyXManager {
+public class Craft5by5Manager extends CraftXbyXManager<ShapedRecipe5by5> {
 
 	
 	private static Craft5by5Manager INSTANCE = new Craft5by5Manager();
@@ -14,7 +16,7 @@ public class Craft5by5Manager extends CraftXbyXManager {
 	}
 	
 	private Craft5by5Manager() {
-		super(5, 5);
+		// super(5, 5);
 
 	}	
 	public void preInit(){}public void postInit(){} // filler
@@ -43,4 +45,9 @@ public class Craft5by5Manager extends CraftXbyXManager {
 					'E', ItemRegistrar.item_energyNugget
 		});
 		}
+
+	@Override
+	public ShapedRecipe5by5 getNewRecipe(int width, int height, NonNullList<Ingredient> ingredients, ItemStack result) {
+		return new ShapedRecipe5by5(ingredients, result, width, height);
+	}
 }

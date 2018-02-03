@@ -19,9 +19,9 @@ public class SlotCrafter extends Slot
     /** The number of items that have been crafted so far. Gets passed to ItemStack.onCrafting before being reset. */
     private int amountCrafted;
 
-    private final CraftXbyXManager MANAGER;
+    private final CraftXbyXManager<?> MANAGER;
     
-    public SlotCrafter(CraftXbyXManager manager, EntityPlayer player, InventoryCrafting craftingInventory, IInventory inventoryIn, int slotIndex, int xPosition, int yPosition)
+    public SlotCrafter(CraftXbyXManager<?> manager, EntityPlayer player, InventoryCrafting craftingInventory, IInventory inventoryIn, int slotIndex, int xPosition, int yPosition)
     {
         super(inventoryIn, slotIndex, xPosition, yPosition);
         MANAGER = manager;

@@ -14,8 +14,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import phlaxyr.forcearrows.ForceArrows;
 import phlaxyr.forcearrows.crafting.CraftXbyXManager;
+import phlaxyr.forcearrows.crafting.ShapedRecipeXbyX;
 import phlaxyr.forcearrows.tile.TileCrafter;
-public abstract class ContainerCrafterXbyX<T extends TileCrafter> extends ContainerCommon<T>
+public abstract class ContainerCrafterXbyX<T extends TileCrafter, R extends ShapedRecipeXbyX> extends ContainerCommon<T>
 {
 	/** COPY-PASTA'D */
     /** The crafting matrix inventory, except adjustable. */
@@ -23,7 +24,7 @@ public abstract class ContainerCrafterXbyX<T extends TileCrafter> extends Contai
 
     private IInventory craftResult;
     
-    private final CraftXbyXManager MANAGER;
+    private final CraftXbyXManager<R> MANAGER;
     
     /**measured at the upper left corner (inside the black border)*/
     public abstract int resultX();
@@ -70,7 +71,7 @@ public abstract class ContainerCrafterXbyX<T extends TileCrafter> extends Contai
      * @param gridX
      * @param gridY
      */
-    public ContainerCrafterXbyX(InventoryPlayer inv, T tile, World world, BlockPos pos, CraftXbyXManager manager, int gridX, int gridY) {
+    public ContainerCrafterXbyX(InventoryPlayer inv, T tile, World world, BlockPos pos, CraftXbyXManager<R> manager, int gridX, int gridY) {
     	super(inv, tile, world, pos);
         MANAGER = manager;
         

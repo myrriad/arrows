@@ -9,24 +9,24 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.event.RegistryEvent.Register;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import phlaxyr.forcearrows.ForceArrows;
-import phlaxyr.forcearrows.machines.MachineCrafter5by5.BlockCrafter5by5;
+import phlaxyr.forcearrows.machines.TemplateCrafter5by5.BlockCrafter5by5;
 import phlaxyr.forcearrows.registrars.Registrar;
 
 
-public class MachineRegistrar extends Registrar{
+public class TemplateRegistrar extends Registrar{
     
-    public static final MachineCrafter5by5 machine_mWorkbench = new MachineCrafter5by5();
+    public static final TemplateCrafter5by5 machine_mWorkbench = new TemplateCrafter5by5();
     
-    static List<Machine<?,?>> machines = new ArrayList<>(); // frankly, the generics don't matter when registering
+    static List<Template<?,?>> templates = new ArrayList<>(); // frankly, the generics don't matter when registering
     static {
-    	machines.add(machine_mWorkbench);
+    	templates.add(machine_mWorkbench);
     }
     
     public static void preInit() {
     	
 
     	// SYSTEMATIC REGISTER-ING
-    	for(Machine<?,?> m : machines) {
+    	for(Template<?,?> m : templates) {
     		registerTile(m.getNewTile().getClass(), m.getRegistryName());
     		
     	}
@@ -40,16 +40,16 @@ public class MachineRegistrar extends Registrar{
 
 
     
-    @GameRegistry.ObjectHolder(ForceArrows.MODID + ":" + MachineCrafter5by5.REGISTRY_NAME) // annotations can't allow expressions :(
+    @GameRegistry.ObjectHolder(ForceArrows.MODID + ":" + TemplateCrafter5by5.REGISTRY_NAME) // annotations can't allow expressions :(
     public static BlockCrafter5by5 block_mWorkbench;
     
-    // static List<Machine<? extends TileCommon, ? extends ContainerCommon<? extends TileCommon>>> commonMachines = new ArrayList<>(); // hurray diamond operator :)
+    // static List<Template<? extends TileCommon, ? extends ContainerCommon<? extends TileCommon>>> commonMachines = new ArrayList<>(); // hurray diamond operator :)
 
     public static void registerBlocks(Register<Block> event) {
 		
 		registerBlock(event, machine_mWorkbench.getNewBlock()); 
     	/*
-		for(Machine<?,?> m : machines) {
+		for(Template<?,?> m : templates) {
 			registerBlock(event, m.getNewBlock()); // machine already adds the unlocalized/registry names
 		}*/ // the block needs its type
 		ForceArrows.lumberjack.info("done registering blocks");

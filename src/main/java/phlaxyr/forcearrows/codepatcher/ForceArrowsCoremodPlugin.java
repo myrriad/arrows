@@ -23,7 +23,6 @@ import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin.MCVersion;
 @MCVersion("1.12.2")
 public class ForceArrowsCoremodPlugin implements IFMLLoadingPlugin, IFMLCallHook{
 
-	
 	public static String MODID = "forcearrows";
 	@Override
 	public String[] getASMTransformerClass()

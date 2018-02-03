@@ -12,12 +12,14 @@ import phlaxyr.forcearrows.ForceArrows;
 import phlaxyr.forcearrows.blocks.BlockCrafter;
 import phlaxyr.forcearrows.client.gui.GuiID;
 import phlaxyr.forcearrows.crafting.Craft5by5Manager;
+import phlaxyr.forcearrows.crafting.ShapedRecipe5by5;
 import phlaxyr.forcearrows.inventory.ContainerCrafterXbyX;
-import phlaxyr.forcearrows.machines.MachineCrafter5by5.ContainerCrafter5by5;
+import phlaxyr.forcearrows.machines.TemplateCrafter5by5.ContainerCrafter5by5;
 import phlaxyr.forcearrows.tile.TileCrafter5by5;
 
-public class MachineCrafter5by5 extends MachineCrafter<
+public class TemplateCrafter5by5 extends TemplateCrafter<
 		TileCrafter5by5,
+		ShapedRecipe5by5,
 		ContainerCrafter5by5>{
 
 	
@@ -26,7 +28,7 @@ public class MachineCrafter5by5 extends MachineCrafter<
     public static final String UNLOCALIZED_NAME = "m_workbench", REGISTRY_NAME = "m_workbench";
 	
 	
-	public MachineCrafter5by5()
+	public TemplateCrafter5by5()
 	{
 		super(UNLOCALIZED_NAME, REGISTRY_NAME, "container.m_workbench.name", Material.WOOD, CreativeTabs.MISC, GuiID.CRAFTER_GUI,
 				tex, 183, 197, 5, 5);
@@ -43,7 +45,7 @@ public class MachineCrafter5by5 extends MachineCrafter<
 	}
 	
 	static class BlockCrafter5by5 extends BlockCrafter{
-		protected BlockCrafter5by5(MachineCrafter5by5 m) {
+		protected BlockCrafter5by5(TemplateCrafter5by5 m) {
 			super(m);
 			
 		}
@@ -79,10 +81,10 @@ public class MachineCrafter5by5 extends MachineCrafter<
 		return new ContainerCrafter5by5(inv, tile, world, pos, this);
 	}
 	
-	static class ContainerCrafter5by5 extends ContainerCrafterXbyX<TileCrafter5by5> {
+	static class ContainerCrafter5by5 extends ContainerCrafterXbyX<TileCrafter5by5, ShapedRecipe5by5> {
 
 		protected ContainerCrafter5by5(InventoryPlayer inv, TileCrafter5by5 tile, World world,
-				BlockPos pos, MachineCrafter5by5 m) {
+				BlockPos pos, TemplateCrafter5by5 m) {
 			super(inv, tile, world, pos, 
 					m.getManager(),
 					m.getGridSlotLengthX(),

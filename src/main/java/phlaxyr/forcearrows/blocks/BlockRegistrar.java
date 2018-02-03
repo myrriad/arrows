@@ -19,7 +19,7 @@ public class BlockRegistrar extends Registrar {
     /*
     @GameRegistry.ObjectHolder(ForceArrows.MODID + ":m_workbench")
     public static BlockCrafter block_mWorkbench;*/ 
-    // MachineRegistrar
+    // TemplateRegistrar
 
     public static void registerBlocks(Register<Block> event) {
 
@@ -38,7 +38,7 @@ public class BlockRegistrar extends Registrar {
     public static void registerItems(Register<Item> event) {
     	registerItem(event, BlockRegistrar.block_massBlock);
 	// registerItem(event, BlockRegistrar.block_mWorkbench);
-	// MOVED TO MachineRegistrar
+	// MOVED TO TemplateRegistrar
     }
 
 }

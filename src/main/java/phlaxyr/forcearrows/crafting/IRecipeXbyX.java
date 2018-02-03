@@ -1,8 +1,8 @@
 package phlaxyr.forcearrows.crafting;
 
-import net.minecraft.item.crafting.IRecipe;
+import net.minecraftforge.common.crafting.IShapedRecipe;
 
-public interface IRecipeXbyX extends IRecipe{
+public interface IRecipeXbyX extends IShapedRecipe{
 	public int gridSlotWidth();
 	public int gridSlotHeight();
 }

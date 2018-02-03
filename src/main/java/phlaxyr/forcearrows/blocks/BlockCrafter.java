@@ -7,7 +7,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import phlaxyr.forcearrows.machines.Machine;
+import phlaxyr.forcearrows.machines.Template;
 import phlaxyr.forcearrows.tile.TileCrafter;
 
 public class BlockCrafter extends BlockMachine {
@@ -16,7 +16,7 @@ public class BlockCrafter extends BlockMachine {
 	{
 		super(m,CreativeTabs.BUILDING_BLOCKS,guiID);
 	}*/
-	public BlockCrafter(Machine<?,?> m) {
+	public BlockCrafter(Template<?,?> m) {
 		super(m);
 	}
 	@SideOnly(Side.CLIENT)

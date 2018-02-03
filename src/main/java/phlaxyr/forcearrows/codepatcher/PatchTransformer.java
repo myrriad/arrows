@@ -7,6 +7,7 @@ import net.minecraft.launchwrapper.IClassTransformer;
 
 public class PatchTransformer implements IClassTransformer {
 	// public static boolean obfuscated;
+	public static final boolean DO_CRAFTING_ARROW = false;
 	@Override
 	public byte[] transform(String name, String transformedName, byte[] basicClass)
 	{
@@ -20,15 +21,16 @@ public class PatchTransformer implements IClassTransformer {
 //			obfuscated = true;
 //			return patchContainer(name, basicClass, true);
 //		}
-		
-		ClassFixer container = new ClassFixer("net.minecraft.inventory.Container",
-				new Container_slotChangedCraftingGrid());
-		ClassFixer containerworkbench = new ClassFixer("net.minecraft.inventory.ContainerWorkbench", 
-				new ContainerWorkbench_transferStackInSlot());
 		byte[] bytes = basicClass;
-		bytes = containerworkbench.fixClass(bytes, name);
-		bytes = container.fixClass(bytes, name);
-				
+		if(DO_CRAFTING_ARROW) {
+			ClassFixer container = new ClassFixer("net.minecraft.inventory.Container",
+					new Container_slotChangedCraftingGrid());
+			ClassFixer containerworkbench = new ClassFixer("net.minecraft.inventory.ContainerWorkbench", 
+					new ContainerWorkbench_transferStackInSlot());
+	
+			bytes = containerworkbench.fixClass(bytes, name);
+			bytes = container.fixClass(bytes, name);
+		}
 
 				
 

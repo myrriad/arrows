@@ -8,7 +8,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import phlaxyr.forcearrows.inventory.ContainerCommon;
-import phlaxyr.forcearrows.machines.IMachine;
+import phlaxyr.forcearrows.machines.ITemplate;
 import phlaxyr.forcearrows.tile.TileCommon;
 
 @SideOnly(Side.CLIENT)
@@ -26,7 +26,7 @@ public abstract class GuiCommon<T extends TileCommon, C extends ContainerCommon<
     	this.xSize = textureSizeX;
     	this.ySize = textureSizeY;
 	}
-	public GuiCommon(ContainerCommon<T> cont, IMachine<?, ?> m) {
+	public GuiCommon(ContainerCommon<T> cont, ITemplate<?, ?> m) {
 		this(m.getTextureSizeX(), m.getTextureSizeY(), cont, m.getGuiTex());
 	}
 	// standard stuffs

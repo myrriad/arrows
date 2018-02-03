@@ -15,16 +15,17 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import phlaxyr.forcearrows.ForceArrows;
 import phlaxyr.forcearrows.blocks.BlockCrafter;
 import phlaxyr.forcearrows.crafting.CraftXbyXManager;
+import phlaxyr.forcearrows.crafting.ShapedRecipe5by5;
 import phlaxyr.forcearrows.inventory.ContainerCrafterXbyX;
 import phlaxyr.forcearrows.tile.TileCrafter;
 
-public abstract class MachineCrafter<T extends TileCrafter, C extends ContainerCrafterXbyX<T>> extends Machine<T, C>{
+public abstract class TemplateCrafter<T extends TileCrafter, R extends ShapedRecipe5by5, C extends ContainerCrafterXbyX<T, R>> extends Template<T, C>{
 
 	@Nonnull
 	protected final int gridSlotLengthX, gridSlotLengthY;
 	
 	
-	public MachineCrafter(String unlocalizedName, String registryName, String tileName, Material material, CreativeTabs creativeTab, int guiID, 
+	public TemplateCrafter(String unlocalizedName, String registryName, String tileName, Material material, CreativeTabs creativeTab, int guiID, 
 			ResourceLocation guiTex, int textureSizeX, int textureSizeY, int gridSlotLengthX, int gridSlotLengthY)
 	{
 		super(unlocalizedName, registryName, tileName, material, creativeTab, guiID, guiTex, textureSizeX, textureSizeY); // 183, 197
@@ -45,15 +46,16 @@ public abstract class MachineCrafter<T extends TileCrafter, C extends ContainerC
 	// getContainer()
 
 	
-	public abstract CraftXbyXManager getManager();
+	public abstract CraftXbyXManager<R> getManager();
+	
 	
 	// 2 apis
 	
 	// safe: only works on the client-side
 	@SideOnly(Side.CLIENT)
 	@Override
-	public phlaxyr.forcearrows.client.gui.GuiCrafterXbyX<T, C> getNewGui(C cont) {
-		return new phlaxyr.forcearrows.client.gui.GuiCrafterXbyX<T, C>(cont, this);
+	public phlaxyr.forcearrows.client.gui.GuiCrafterXbyX<T, R, C> getNewGui(C cont) {
+		return new phlaxyr.forcearrows.client.gui.GuiCrafterXbyX<T, R, C>(cont, this);
 	}
 	
 	
@@ -61,11 +63,11 @@ public abstract class MachineCrafter<T extends TileCrafter, C extends ContainerC
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
 		ForceArrows.lumberjack.debug("get server gui element");
 		if (ID != this.guiID) {
-			System.err.println("Invalid ID: expected " + guiID + ", received " + ID);
+			ForceArrows.lumberjack.error("Invalid ID: expected " + guiID + ", received " + ID);
 		}
 
 		if(this.getManager() == null) {
-			System.err.println("MANAGER IS NULL!");
+			ForceArrows.lumberjack.error("MANAGER IS NULL!");
 		}
 		BlockPos xyz = new BlockPos(x, y, z);
 		TileEntity te = world.getTileEntity(xyz);
@@ -86,10 +88,10 @@ public abstract class MachineCrafter<T extends TileCrafter, C extends ContainerC
 	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
 		ForceArrows.lumberjack.debug("get client gui element");
 		if (ID != guiID) {
-			System.err.println("Invalid ID: expected " + guiID + ", received " + ID);
+			ForceArrows.lumberjack.error("Invalid ID: expected " + guiID + ", received " + ID);
 		}
 		if(this.getManager() == null) {
-			System.err.println("MANAGER IS NULL!");
+			ForceArrows.lumberjack.error("MANAGER IS NULL!");
 		}
 		BlockPos xyz = new BlockPos(x, y, z);
 		TileEntity te = world.getTileEntity(xyz);

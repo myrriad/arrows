@@ -7,22 +7,22 @@ import phlaxyr.forcearrows.ForceArrows;
 import phlaxyr.forcearrows.client.gui.GuiHandlerRegistrar;
 
 @SideOnly(Side.CLIENT)
-public class MachineRegistrarClient {
+public class TemplateRegistrarClient {
 	public static void preInit() {
     	// FIRST AND FOREMOST
     	NetworkRegistry.INSTANCE.registerGuiHandler(ForceArrows.instance,GuiHandlerRegistrar.getInstance());
     	
-    	for(Machine<?,?> m : MachineRegistrar.machines) {
+    	for(Template<?,?> m : TemplateRegistrar.templates) {
     		registerGui(m);
     	}
 
 	}
     public static void initModels() {
 
-    	MachineRegistrar.block_mWorkbench.initModel();
+    	TemplateRegistrar.block_mWorkbench.initModel();
     }
     
-	protected static void registerGui(Machine<?,?> guihandler) { // machines are guihandlers! :D
+	protected static void registerGui(Template<?,?> guihandler) { // templates are guihandlers! :D
 		GuiHandlerRegistrar.getInstance().registerGuiHandler(guihandler, guihandler.getGuiID());			
 	}
 }

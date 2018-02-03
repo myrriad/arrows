@@ -14,7 +14,7 @@ import phlaxyr.forcearrows.crafting.Craft5by5Manager;
 import phlaxyr.forcearrows.craftingarrow.ArrowManager;
 import phlaxyr.forcearrows.craftingarrow.PacketHandler;
 import phlaxyr.forcearrows.items.ItemRegistrar;
-import phlaxyr.forcearrows.machines.MachineRegistrar;
+import phlaxyr.forcearrows.machines.TemplateRegistrar;
 
 @Mod.EventBusSubscriber
 public abstract class CommonProxy {
@@ -28,7 +28,7 @@ public abstract class CommonProxy {
 		ItemRegistrar.preInit();
 
 		// TileRegistrar.preInit();
-		MachineRegistrar.preInit();
+		TemplateRegistrar.preInit();
 		
 		PacketHandler.preinit(ForceArrows.MODID);
 		
@@ -38,7 +38,7 @@ public abstract class CommonProxy {
 		ItemRegistrar.init();
 		
 		// TileRegistrar.init();
-		MachineRegistrar.preInit();
+		TemplateRegistrar.preInit();
 		
 		Craft5by5Manager.getInstance().init();
 		ArrowManager.init();
@@ -50,18 +50,18 @@ public abstract class CommonProxy {
 		ItemRegistrar.postInit();
 
 		// TileRegistrar.postInit();
-		MachineRegistrar.postInit();
+		TemplateRegistrar.postInit();
 	}
 	@SubscribeEvent
 	public static void registerBlocks(Register<Block> event) {
 		BlockRegistrar.registerBlocks(event);
-		MachineRegistrar.registerBlocks(event);
+		TemplateRegistrar.registerBlocks(event);
 	}
 	@SubscribeEvent
 	public static void registerItems(Register<Item> event) {
 		ItemRegistrar.registerItems(event);
 		BlockRegistrar.registerItems(event);
-		MachineRegistrar.registerItems(event);
+		TemplateRegistrar.registerItems(event);
 	}
 
 	abstract public boolean playerIsInCreativeMode(EntityPlayer player);

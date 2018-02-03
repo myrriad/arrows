@@ -11,11 +11,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import phlaxyr.forcearrows.crafting.ShapedRecipeXbyX;
 
-public class JeiShapedRecipeXbyX extends JeiRecipeXbyX<ShapedRecipeXbyX> {
+public class JeiShapedRecipeXbyX<R extends ShapedRecipeXbyX> extends JeiRecipeXbyX<R> {
 
 	// private static int craftOutputSlot = 0;
 	private static int craftInputSlot1 = 1;
-	public JeiShapedRecipeXbyX(ShapedRecipeXbyX recipe)
+	public JeiShapedRecipeXbyX(R recipe)
 	{
 		super(recipe);
 	}

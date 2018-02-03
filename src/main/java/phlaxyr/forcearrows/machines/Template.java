@@ -15,7 +15,7 @@ import phlaxyr.forcearrows.blocks.BlockMachine;
 import phlaxyr.forcearrows.inventory.ContainerCommon;
 import phlaxyr.forcearrows.tile.TileCommon;
 
-public abstract class Machine<T extends TileCommon, C extends ContainerCommon<T>> implements IMachine<T, C>{
+public abstract class Template<T extends TileCommon, C extends ContainerCommon<T>> implements ITemplate<T, C>{
 	
 	@Nonnull
     protected final String unlocalizedName, registryName, tileName;
@@ -29,7 +29,7 @@ public abstract class Machine<T extends TileCommon, C extends ContainerCommon<T>
 	@Nonnull
     protected final ResourceLocation guiTex;
 
-	public Machine(String unlocalizedName, String registryName, String tileName, Material material,
+	public Template(String unlocalizedName, String registryName, String tileName, Material material,
 			CreativeTabs creativeTab, int guiID, ResourceLocation guiTex, int textureSizeX, int textureSizeY) {
 		
 		this.unlocalizedName = unlocalizedName;
