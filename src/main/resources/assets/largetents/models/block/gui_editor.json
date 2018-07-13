@@ -1,0 +1,23 @@
+{
+
+    "parent": "block/cube_all",
+
+    "textures": {
+
+        "down": "largetents:blocks/gui_editor",
+
+        "up": "largetents:blocks/gui_editor",
+
+        "north": "largetents:blocks/gui_editor",
+
+        "east": "largetents:blocks/gui_editor",
+
+        "south": "largetents:blocks/gui_editor",
+
+        "west": "largetents:blocks/gui_editor",
+
+        "particle": "blocks/lapis_block"
+
+    }
+
+}

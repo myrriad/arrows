@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "largetents:mass_block"
+    }
+  },
+  "result": {
+    "item": "largetents:mass_ingot",
+    "count": 9
+  }
+}

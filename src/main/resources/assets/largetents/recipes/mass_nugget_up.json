@@ -1,0 +1,26 @@
+{
+    "type": "forge:ore_shaped",
+    "pattern": [
+        "LDL",
+        "GIG",
+        "LDL"
+    ],
+    "key": {
+        "L": {
+            "item": "minecraft:dye",
+			"data": 4
+        },
+        "D": {
+            "item": "minecraft:diamond"
+        },
+        "G": {
+            "item": "minecraft:gold_ingot"
+        },
+        "I": {
+            "item": "minecraft:iron_block"
+        }
+    },
+    "result": {
+        "item": "largetents:mass_nugget"
+    }
+}

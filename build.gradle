@@ -71,11 +71,11 @@ dependencies {
 	
 	deobfProvided "mezz.jei:jei_${mc_version}:${jei_version}:api"
 	// at runtime, use the full JEI jar
-	// runtime "mezz.jei:jei_${mc_version}:${jei_version}"
+	runtime "mezz.jei:jei_${mc_version}:${jei_version}"
 }
 
 runClient {
-	jvmArgs "-Dfml.coreMods.load=phlaxyr.arrows.codepatcher.ArrowsCoremodPlugin"
+	// jvmArgs "-Dfml.coreMods.load=phlaxyr.largetents.codepatcher.largetentsCoremodPlugin"
 	
 }
 
@@ -97,3 +97,17 @@ processResources {
         exclude 'mcmod.info'
     }
 }
+
+tasks.withType(JavaExec) {
+    if (System.getProperty('DEBUG', 'false') == 'true') {
+        jvmArgs '-Xdebug', '-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=9069'
+    }
+}
+task getHomeDir << {// 
+    println System.properties['java.home']
+	
+}
+
+                    
+
+

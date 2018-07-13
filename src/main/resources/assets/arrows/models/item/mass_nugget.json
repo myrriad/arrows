@@ -1,7 +1,0 @@
-
-{
-    "parent": "item/generated",
-    "textures": {
-		"layer0": "arrows:items/mass_nugget"
-	}
-}

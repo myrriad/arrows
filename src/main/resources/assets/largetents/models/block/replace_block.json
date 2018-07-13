@@ -1,0 +1,23 @@
+{
+
+    "parent": "block/cube_all",
+
+    "textures": {
+
+        "down": "largetents:blocks/replace_block",
+
+        "up": "largetents:blocks/replace_block",
+
+        "north": "largetents:blocks/replace_block",
+
+        "east": "largetents:blocks/replace_block",
+
+        "south": "largetents:blocks/replace_block",
+
+        "west": "largetents:blocks/replace_block",
+
+        "particle": "blocks/lapis_block"
+
+    }
+
+}

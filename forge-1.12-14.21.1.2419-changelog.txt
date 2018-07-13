@@ -2148,7 +2148,7 @@ Build 1.9.4-12.17.0.1957:
 	williewillus: Add getter for the world to LootContext (#2954)
 
 Build 1.9.4-12.17.0.1956:
-	gurreja: Fixed arrows not showing in non default AchievementPages (#2968)
+	gurreja: Fixed largetents not showing in non default AchievementPages (#2968)
 
 Build 1.9.4-12.17.0.1955:
 	mezz: Add methods to Fluid to allow custom vaporization overrides (#2959)
@@ -2279,7 +2279,7 @@ Build 1.9.4-12.17.0.1937:
 		Take capabilities into account when comparing ItemStack NBT's. Closes
 		#2726
 	LexManos:
-		Tipped arrows are now not affected by infinite enchantment but are still
+		Tipped largetents are now not affected by infinite enchantment but are still
 		effected by creative mode.
 	LexManos: Set max enchantment ID to Short.MAX_VALUE. Closes #2799
 	LexManos:
@@ -2449,7 +2449,7 @@ Build 1.9.4-12.17.0.1914-1.9.4:
 	LexManos: Set max enchantment ID to Short.MAX_VALUE. Closes #2799
 
 Build 1.9.4-12.17.0.1913-1.9.4:
-	LexManos: Tipped arrows are now not affected by infinite enchantment but are still effected by creative mode.
+	LexManos: Tipped largetents are now not affected by infinite enchantment but are still effected by creative mode.
 
 Build 1.9.4-12.17.0.1912-1.9.4:
 	tterrag1098: Fix screenshot link paths on Windows (#2886)
@@ -2659,7 +2659,7 @@ Build 1.9-12.16.0.1886:
 	fry: Fixed progress reporting for model loading.
 	fry: Javadocs, small cleanup.
 	LexManos: Remove our entity position fixer. Vanilla fixed the bug in 1.9.
-	LexManos: Fix vanilla bug where bows consumed tipped arrows in creative.
+	LexManos: Fix vanilla bug where bows consumed tipped largetents in creative.
 	LexManos: Fixed onUseStop being called twice {Bows firing twice}
 	LexManos: Fixed Sand not falling.
 	LexManos: Fixed NPE when sneak using a item.
@@ -2709,7 +2709,7 @@ Build 1.9-12.16.0.1886:
 	LexManos: Rework DimensionManager for new DimensionType enum, replaces the old provider registry. Also fixed save folder issues with dimensions. Closes #2570
 	LexManos: Fix Chests not opening correctly with semi-solid blocks on top.
 	LexManos: Fixed Item.shouldCauseReequipAnimation hook.
-	LexManos: Add ShieldDecoration and Tipped arrows to recipe sorter. Closes #2613
+	LexManos: Add ShieldDecoration and Tipped largetents to recipe sorter. Closes #2613
 	LexManos: Exclude jna from termal tansformer.
 	vincent.lee: Update according to suggestions
 	LexManos: Fix pushing players inside blocks.
@@ -3410,7 +3410,7 @@ Build 1.9-12.16.0.1789-1.9:
 	LexManos: Added support for custom dyes with Banners. Closes #2596
 
 Build 1.9-12.16.0.1788-1.9:
-	LexManos: Add ShieldDecoration and Tipped arrows to recipe sorter. Closes #2613
+	LexManos: Add ShieldDecoration and Tipped largetents to recipe sorter. Closes #2613
 	LexManos: Exclude jna from termal tansformer.
 	LexManos: Fix pushing players inside blocks.
 

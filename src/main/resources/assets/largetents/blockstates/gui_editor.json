@@ -1,0 +1,10 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "largetents:gui_editor"
+  },
+  "variants": {
+    "normal": [{}],
+    "inventory": [{}]
+  }
+}

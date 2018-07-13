@@ -1,0 +1,16 @@
+{
+    "type": "forge:ore_shaped",
+    "pattern": [
+        "LLL",
+        "LLL",
+        "LLL"
+    ],
+    "key": {
+        "L": {
+            "item": "largetents:mass_ingot"
+        }
+    },
+    "result": {
+        "item": "largetents:mass_block"
+    }
+}

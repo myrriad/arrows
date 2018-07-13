@@ -1,0 +1,10 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "largetents:m_workbench"
+  },
+  "variants": {
+    "normal": [{}],
+    "inventory": [{}]
+  }
+}
