@@ -1,39 +1,27 @@
 package phlaxyr.largetents.tile;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import javax.annotation.Nullable;
 
-import com.google.common.collect.Lists;
-import com.google.common.primitives.Ints;
-
 import net.minecraft.inventory.ItemStackHelper;
-import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTException;
 import net.minecraft.nbt.NBTPrimitive;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.NonNullList;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
-import phlaxyr.largetents.inventory.IPlayerSlotTracker;
 import phlaxyr.largetents.inventory.PlayerSlotTracker;
 import phlaxyr.largetents.machines.TemplateRegistrar;
-import phlaxyr.largetents.machines.guieditor.TemplateGuiEditor;
 import phlaxyr.largetents.util.ISlotTracker;
-import phlaxyr.largetents.util.Misc;
 
 public class TileGuiEditor extends TileCommon implements ISlotTracker{
 	
 	// private static ArrayList<Integer> testVals = Misc.toArrayList(18, 18, 18, 36);
 	// SlotTracker st;
 	
-	// ##start of iitemhandler move##
-	IItemHandler handler = new ItemStackHandler();
-	// ##end##
+
 	
 	public PlayerSlotTracker ptracker;
 	private static int[] testVals = {18, 18, 18, 36};
